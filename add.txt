@@ -1,0 +1,9 @@
+ <TouchableOpacity onPress={() => 
+                        navigation.navigate("Home", {
+                            param1: item.image,
+                            title:item.title,
+                        })} >
+
+    style={styles.backBackgroundImage} 
+onPress{() => onBackPressed()}>
+<Entyponame="chevron-left" size={32} color={colors.white} />
