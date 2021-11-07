@@ -1,7 +1,7 @@
 import React from 'react';
 import { View , TouchableOpacity, Text, StyleSheet, ImageBackground, Dimensions, ScrollView } from 'react-native';
 import colors from '../assets/colors/colors';
-import image from '../assets/images/cancer4.jpg';
+import image from '../assets/images/cancer7.jpg';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 
@@ -19,7 +19,7 @@ const Details = ({navigation}) => {
             <ScrollView>
                 <TouchableOpacity style={styles.backBackgroundImage}
                 onPress={() => navigation.goBack()}>
-                    <Entypo name="chevron-left" size={32} color={colors.white} />
+                    <Entypo name="chevron-left" size={28} color={colors.white} />
                 </TouchableOpacity>
             
             <Text style={styles.descriptionTitle}>Get To Know About Cancer</Text>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         height: height,
     },
     descriptionTitle: {
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: 'sans-serif-medium',
         fontSize: 20,
         color: colors.white,
         textAlign: 'center',
@@ -110,13 +110,14 @@ const styles = StyleSheet.create({
     },
     descriptionTitleMeaning:{
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Roboto',
         fontSize: 17,
         textAlign: 'center',
+        textDecorationLine: 'underline'
     },
     descriptionMeaning:{
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Roboto',
         fontSize: 17,        
         marginTop: 15,
         textAlign: 'center',
@@ -134,15 +135,16 @@ const styles = StyleSheet.create({
      },
     descriptionTitleTypes:{
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Roboto',
         fontSize: 17,
         marginTop: 15,
         textAlign: 'center',
+        textDecorationLine: 'underline'
 
      },
     descriptionTypes: {
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Roboto',
         fontSize: 17,
         marginTop: 30,
         textAlign: 'center',
@@ -159,14 +161,15 @@ const styles = StyleSheet.create({
     },
     descriptionTitleSpreading:{
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 5,
         textAlign: 'center',
+        textDecorationLine: 'underline'
     },
     descriptionSpreading: {
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 30,
         textAlign: 'center',
@@ -184,15 +187,16 @@ const styles = StyleSheet.create({
     },
     descriptionTitleTreatment: {
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 15,
         textAlign: 'center',
+        textDecorationLine: 'underline'
 
     },
     descriptionTreatment: {
         color: colors.white,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 30,
         textAlign: 'center',

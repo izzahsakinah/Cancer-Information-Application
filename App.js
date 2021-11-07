@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import Home from './components/Home';
 import Details from './components/Details';
 import Profile from './components/Profile';
+import Quiz from './components/Quiz';
 import colors from './assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
@@ -23,13 +24,18 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{
       style: styles.tabBarIcon,
-      activeTintColor: colors.orange,
-      inactiveTintColor: colors.orange,
+      backgroundColor:  colors.orchid,
+      activeTintColor: colors.darkGray,
+      inactiveTintColor: colors.black,
       tabBarShowLabel: false,
       headerShown: false,
     }}>
       <Tab.Screen name="Home" component={Home} options= {{
         tabBarIcon: ({ color }) => (<Entypo name= "home" size={20} color={color} />),
+      }}
+    />
+     <Tab.Screen name="Quiz" component={Quiz} options= {{
+        tabBarIcon: ({ color }) => (<MaterialCommunityIcons name="bell" size={20} color={color} />),
       }}
     />
       <Tab.Screen name="Profile" component={Profile} options= {{
@@ -69,7 +75,7 @@ const App = () => {
 
 const styles = StyleSheet.create ({
   tabBarIcon: { 
-    backgroundColor: colors.orange,
+    backgroundColor: colors.orchid,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
   },
