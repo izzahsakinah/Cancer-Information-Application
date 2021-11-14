@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import Home from './components/Home';
-import Details from './components/Details';
-import Profile from './components/Profile';
-import Quiz from './components/Quiz';
-import colors from './assets/colors/colors';
+import Home from '../components/Home';
+import Details from '../components/Details';
+import Profile from '../components/Profile';
+import Quiz from '../components/Quiz';
+import colors from '../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
