@@ -10,7 +10,7 @@
     "test": "jest",
     "lint": "eslint .",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
