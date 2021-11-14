@@ -10,7 +10,7 @@
     "test": "jest",
     "lint": "eslint .",
     "build": "react-scripts build",
-    "predeploy": "yarn add build",
+    "predeploy": "npm add build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
@@ -21,12 +21,16 @@
     "build": "^0.1.4",
     "is-arrayish": "^0.3.2",
     "react": "17.0.2",
+    "react-art": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-native": "^0.66.3",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
     "react-native-vector-icons": "^8.1.0",
+    "react-native-web": "^0.17.5",
+    "react-router-dom": "^6.0.2",
+    "react-router-native": "^6.0.2",
     "react-scripts": "^4.0.3",
     "web-vitals": "^2.1.2"
   },
