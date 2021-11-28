@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "663548722842",
+    "project_id": "mynanoria",
+    "storage_bucket": "mynanoria.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663548722842:android:8c78cebcac030bc363a923",
+        "android_client_info": {
+          "package_name": "com.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663548722842-vjpmtsfcv3np014q4ojp2mm25ce4gmcf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myapp",
+            "certificate_hash": "8d69064bb10b44320ecb1b64f5924b50271526a3"
+          }
+        },
+        {
+          "client_id": "663548722842-b7vtpbmmmnsn29r5v7c5i7i33tmub7ra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnoJXKC2hlXD0PMxg1R6mmpkkBxWKo_sA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663548722842-b7vtpbmmmnsn29r5v7c5i7i33tmub7ra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

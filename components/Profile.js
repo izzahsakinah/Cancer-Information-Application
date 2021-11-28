@@ -10,8 +10,6 @@ import profile from '../assets/images/blackwidow.png';
 import colors from '../assets/colors/colors';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import profileData from '../assets/data/profileData';
-import name from '../assets/images/name.png';
-import status from '../assets/images/status.png';
 import { FlatList } from 'react-native-gesture-handler';
 import Entypo from 'react-native-vector-icons/Entypo';
 
@@ -21,42 +19,38 @@ Entypo.loadFont();
 const Profile = () => {
   const renderProfile = ({item}) => {
     return (
-      <View style={styles.body}>
-        <View style={styles.item}>
+        <View style={styles.container}>          
+          <SafeAreaView>
+            <View>
+              <Image source={profile} style={styles.profileImage} />  
+            </View>  
+          </SafeAreaView>
         <View style={styles.detailsNameWrapper}>
-        <Image source={status} style={styles.statusImage} />
             <Text style = {styles.detailsName}>
               {item.name}
             </Text>
             </View>
 
           <View style={styles.detailsCountryWrapper}>
-          <Entypo style={styles.locationImage} name="location-pin" size={35} color={colors.black} />
+          <Entypo style={styles.locationImage} name="location-pin" size={25} color={colors.black} />
             <Text style = {styles.detailsCountry}>
               {item.country}
             </Text>
             </View>
 
-          <View style={styles.detailsDescriptionWrapper}>
-          <Image source={name} style={styles.nameImage} />
+          {/*<View style={styles.detailsDescriptionWrapper}>
             <Text style = {styles.detailsDescription}>
               {item.description}
             </Text>
-            </View>
+    </View>*/}
         </View>
-      </View>
 
    );
     };
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <View style={styles.menuWrapper}>
-          <Image source={profile} style={styles.profileImage} />
-        </View>
-      </SafeAreaView>
-       <View style={styles.discoverItemsWrapper}>
+    <View >
+       <View style={styles.infoWrapper}>
                         <FlatList
                             data={profileData}
                             renderItem={renderProfile}
@@ -68,31 +62,35 @@ const Profile = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#E8DFDF',
-  },
-  body:{    
-    backgroundColor: '#4527A0',
-    height:300,
+
+  container: {     
+    backgroundColor:'#ba55d3',
+    height:550,
     alignItems:'center', 
     borderRadius: 25,
-    marginTop: 30,
-  },
-  item:{
-    alignItems:'flex-start',
-    paddingLeft:15,    
-    textAlign: 'center',
+    marginTop: 200,
+    //marginBottom: 10,
   },
   menuWrapper: {
-    padding:60,
     alignItems: 'center',
   },
   profileImage: {
-    width: 130,
-    height: 130,
-    borderRadius: 63,
-    borderWidth: 4,
-    marginBottom:10,
+    width: 220,
+    height: 220,
+    borderRadius: 220,
+    borderWidth: 3,
+    borderColor: colors.white,
+    marginTop: -120,
+    position: 'absolute',
+    right: -110,
+    //alignItems: 'center',
+    //shadowColor: '#000',
+    //shadowOffset: {
+      //width: 0,
+      //height: 2,
+    //},
+    //shadowOpacity: 0.25,
+    //shadowRadius: 3.84,
   },
   detailsName: {
     fontFamily: 'sans-serif-medium',
@@ -105,12 +103,9 @@ const styles = StyleSheet.create({
   detailsNameWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 15,
+    top: 150,
   },
-  nameImage: {
-    width: 30,
-    height: 35,
-  },
+  
   detailsCountry: {
     fontFamily: 'sans-serif-medium',
     fontSize: 16,
@@ -120,27 +115,7 @@ const styles = StyleSheet.create({
   detailsCountryWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 15,
-  },
-  locationImage: {
-    left: -3,
-  },
-  detailsDescription: {
-    fontFamily: 'sans-serif-medium',
-    fontSize: 16,
-    color: colors.white,
-    paddingLeft: 5,
-    textAlign: 'center',
-
-  },
-  detailsDescriptionWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 15,
-  },
-  statusImage: {
-    width: 30,
-    height: 35,
+    top: 150,
   },
 });
 

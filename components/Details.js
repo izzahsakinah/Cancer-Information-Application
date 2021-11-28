@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
        height: 230,
        borderRadius: 20,
        paddingVertical: 20,
-       marginLeft: 30,
+       marginLeft: 50,
        marginTop: 20,
 
     },
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         marginTop: 20,
         paddingVertical: 15,
-        marginLeft: 30, 
+        marginLeft: 50, 
         
      },
     descriptionTitleTypes:{
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         marginTop: 20,
         paddingVertical: 15,
-        marginLeft: 30,
+        marginLeft: 50,
 
     },
     descriptionTitleSpreading:{
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         marginTop: 20,
         paddingVertical: 15,
-        marginLeft: 30,
+        marginLeft: 50,
         marginBottom: 50,
     },
     descriptionTitleTreatment: {

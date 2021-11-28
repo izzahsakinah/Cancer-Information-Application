@@ -19,7 +19,7 @@ const discoverData = [
         id: 'options3',
         title: ' Nano Drugs Targetting Cancer Therapy ',
         details: ' Greatest Technology in Cancer Therapy ',
-        image: require('../images/cancer6.jpg'),        
+        image: require('../images/cancer6.jpg'),
         imageBig: require('../images/cancer4.jpg'),
     
     }
