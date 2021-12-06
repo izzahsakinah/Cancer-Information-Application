@@ -1,65 +1,107 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   TextInput,
   View,
-  Button,
-  ToastAndroid,
+  TouchableOpacity,
+  Dimensions, 
+  Image,
 } from 'react-native';
+import colors from '../assets/colors/colors';
+import image from '../assets/images/Login.gif';
+
+const height = Dimensions.get('window').height;
 
 
-export default class Login extends React.Component {
-  state = {email: '', password: '', errorMessage: null};
-  handleLogin = () => {
-    if (this.state.email && this.state.password) {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => this.props.navigation.navigate('Home'))
-        .catch(error => this.setState({errorMessage: error.message}));
-    } else {
-      ToastAndroid.show('Please fill all the fields!', ToastAndroid.LONG);
+export default class Login extends Component {
+  
+  constructor(props)
+  {
+    super(props);
+    this.state = {useremail:'', userpassword:''};
+  }
+
+  insertUsers=()=>
+  {
+    var useremail = this.state.useremail;
+    var userpassword = this.state.userpassword;
+
+  if((useremail.length==0) || (userpassword==0))
+    {
+      alert("Plase fill in all required field!");
     }
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={{color: 'blue', fontSize: 40}}>Login</Text>
+  else{
 
+      var insertAPIURL  = "http://10.0.2.2:80/api/login.php";
+
+      var headers = { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      };
+
+      var data = {
+        useremail: useremail,
+        userpassword: userpassword
+      };
+
+      fetch(insertAPIURL, {
+        method: 'POST', 
+        headers: headers,
+        body: JSON.stringify(data)
+      }
+      )
+      .then((Response) => Response.json())
+      .then((Response)=>{
+        if (Response[0].Message == "Success") {
+          console.log("true")
+          this.props.navigation.navigate("TabNavigator");
+        }
+        console.log(data);
+      })
+      .catch((error)=>{
+        console.error("error" + error);
+      })
+     }
+   }
+
+  render()
+  {
+
+     return (
+      <View style={styles.container}>
+        <Image source={image} style={styles.imageStyle}/>
         <TextInput
           style={styles.textInput}
           autoCapitalize="none"
-          placeholder="Email"
-          onChangeText={email => this.setState({email})}
-          value={this.state.email}
+          placeholder="Email" 
+          placeholderTextColor="#A59696"
+          onChangeText={useremail=>this.setState({useremail})}
         />
         <TextInput
-          secureTextEntry
+          secureTextEntry={true}
           style={styles.textInput}
           autoCapitalize="none"
-          placeholder="Password"
-          onChangeText={password => this.setState({password})}
-          value={this.state.password}
+          placeholder="Password"          
+          placeholderTextColor="#A59696"
+          onChangeText={userpassword=>this.setState({userpassword})}
         />
-        {this.state.errorMessage && (
-          <Text style={{color: 'red'}}>{this.state.errorMessage}</Text>
-        )}
+        
         <View style={{marginVertical: 20}}>
-          <Button title="Login" color="blue" onPress={this.handleLogin} />
+          <TouchableOpacity style={styles.loginButton} 
+           onPress={this.insertUsers}>
+            <Text style={styles.loginText}> 
+              Login
+            </Text>
+          </TouchableOpacity>
         </View>
+        
         <View>
-          <Text>
-            {' '}
-            Don't have an account?
             <Text
               onPress={() => this.props.navigation.navigate("Register")}
-              style={{color: 'blue', fontSize: 16}}>
-              {' '}
-              Register{' '}
-            </Text>
-          </Text>
+              style={{color: colors.black, fontSize: 10, top:-10,}}> Don't have an account? Register
+            </Text> 
         </View>
       </View>
     );
@@ -71,15 +113,37 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 20,
+    height: height,
+    backgroundColor: colors.white2
   },
   textInput: {
     height: 40,
-    fontSize: 20,
-    width: '90%',
-    borderColor: '#9b9b9b',
-    borderBottomWidth: 1,
+    fontSize: 12,
+    width: '80%',
+    color: colors.black,    
+    backgroundColor:'#E0E0E0',
+    borderRadius: 10,
     marginTop: 8,
-    marginVertical: 15,
+    marginVertical: 15, 
   },
-});
+  imageStyle: {
+    width: 230,
+    height: 230,
+    top: -50,
+  }, 
+  loginButton: {
+    backgroundColor: colors.darkBlue,
+    width: 80,
+    height: 30,
+    borderRadius: 10,
+  },
+  loginText:{
+    fontSize: 15,
+    fontFamily: 'Robot',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: colors.white2,
+    top: 5,
+  },
+}
+);

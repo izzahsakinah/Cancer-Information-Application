@@ -1,164 +1,171 @@
-import React from 'react';
-import { View, Image, StyleSheet, TextInput, Text, Dimensions, ToastAndroid, } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+ 
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
+  Dimensions, 
+  Image,
+} from 'react-native';
 import colors from '../assets/colors/colors';
-import firebase from 'react-native-firebase';
+import image from '../assets/images/Mobile-login.gif';
 
 const height = Dimensions.get('window').height;
 
+export default class Register extends Component {
+  
+   constructor(props)
+   {
+     super(props);
+     this.state = {username:'', useremail:'', userpassword:''};
+   }
 
-export default class Register extends React.Component {
-  state = {email: '', password: '', errorMessage: null};
-  signupNow = () => {
-   //to do => firebase authentication with email & password code goes here
-  if (this.state.email && this.state.password) {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => this.props.navigation.navigate('Home'))
-      .catch(error => this.setState({errorMessage: error.message}));
-  } else {
-    ToastAndroid.show('Please fill all the fields!', ToastAndroid.LONG);
-  }
-};
+   insertUsers=()=>
+   {
+     var username  = this.state.username;
+     var useremail = this.state.useremail;
+     var userpassword = this.state.userpassword;
+     var resultEmail = RegExp(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i);
 
-render() {
-  return (
-    <View style={styles.container}>
-      <Image source={require('../assets/images/Mobile-login.gif')} 
-      style={styles.image}
-      />   
-    
-      <View style={styles.emailWrapper}>
-         <TextInput
-          style={styles.inputStyle}
-          onChangeText={email => this.setState({email})}
-          value={this.state.email}
-          placeholder="Email"
-          placeholderTextColor="#FFF" 
-          />
-          </View>
+     if((username.length==0) ||  (useremail.length==0) || (userpassword==0))
+     {
+       alert("Plase fill in all required field!");
+     }
+     else if (!(resultEmail).test(useremail))
+     {
+       alert("Invalid Email");
+     }
+     else if (userpassword.length<3)
+     {
+        alert("Minimum 4 characters required");
+    }else if (!((/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/).test(userpassword)))
+    {
+      alert("At least 1 special character");
+    }else if (((/[ ]/).test(userpassword)))
+    {
+      alert("Cannot include space in password");
+    }
+    else
+    {
+        var insertAPIURL  = "http://10.0.2.2:80/api/registration.php";
 
-          <View style={styles.passwordWrapper}>
+        var headers = { 
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        };
+        var data = {
+          username: username,
+          useremail: useremail,
+          userpassword: userpassword
+        };
+
+        fetch(insertAPIURL, {
+          method: 'POST', 
+          headers: headers,
+          body: JSON.stringify(data)
+        }
+        )
+        .then((response) => response.json())
+        .then((response) => 
+          {
+            alert(response[0].Message);
+            this.props.navigation.navigate("Login"); 
+          }
+        )
+        .catch((error)=>
+        {
+          alert("Error" + error);
+        })
+     }
+   }
+
+    render()
+    {
+    return (
+      <View style={styles.container}>
+        
+        <Image source={image} style={styles.imageStyle}/>
+
         <TextInput
-          style={styles.inputStyle}
-          maxLength={15}
-          secureTextEntry={true}
-          placeholder="Password"
-          placeholderTextColor="#FFF" 
-          onChangeText={password => {
-            this.setState({password});
-          }}
-          value={this.state.password}
+          style={styles.textInput}
+          autoCapitalize="none"
+          placeholder="Name" 
+          placeholderTextColor="#A59696"
+          onChangeText={username=>this.setState({username})}
         />
-        {this.state.errorMessage && (
-          <Text style={{color: 'red'}}>{this.state.errorMessage}</Text>
-        )}
-          </View>
-
-          <View style={styles.buttonWrapper}>
-        <TouchableOpacity  onPress={()  => this.signupNow()}>
-          <Text style={styles.enterText}>Enter</Text>
-        </TouchableOpacity>
-          </View>
-          
-        <Text 
-          style={styles.loginText} 
-          onPress={() => this.props.navigation.navigate('Login')}
-          >
-          Already Registered? Click here to login
-        </Text>
-    </View>
-     );
-  };
+        <TextInput
+          style={styles.textInput}
+          autoCapitalize="none"
+          placeholder="Email"
+          placeholderTextColor="#A59696"
+          onChangeText={useremail=>this.setState({useremail})}
+        />
+        <TextInput
+          secureTextEntry
+          style={styles.textInput}
+          autoCapitalize="none"
+          placeholder="Password"
+          placeholderTextColor="#A59696"
+          onChangeText={userpassword=>this.setState({userpassword})}
+        />
+        
+        <View style={{marginVertical: 10}}>
+          <TouchableOpacity style={styles.registerButton} onPress={this.insertUsers}>
+            <Text style={styles.registerText}> 
+                Enter
+            </Text>
+            </TouchableOpacity>
+        </View>
+        <View>
+            <Text
+              onPress={() =>  this.props.navigation.navigate("Login")}
+              style={{color:colors.black, fontSize: 10, top:-10,}}>
+                  Already Register? Click here to login
+            </Text>
+        </View>
+      </View>
+    );
+  }
 }
 
 
 const styles = StyleSheet.create({
-
   container: {
-    height: height,
-    backgroundColor: colors.white2,        
+    flex: 1,
     justifyContent: 'center',
-    flex:1,
-
+    alignItems: 'center',
+    height: height,
+    backgroundColor: colors.white2,
   },
-  image: {
-    alignSelf: 'center', 
-    width: 250,
-    height: 250,
-    top:  -25,
-
-  },
-  nameWrapper: {
-    width: 250,
-    height: 50,
-    backgroundColor: colors.darkBlue,    
-    alignSelf: 'center',
-    marginBottom: 10,  
-    borderRadius: 10
-  },
-  nmText: {
-    top: 15,
-    left: 10,
-    color: colors.white,
-  },
-  emailWrapper: {
-    width: 250,
-    height: 50,
-    backgroundColor: colors.darkBlue, 
-    marginBottom: 10,    
-    alignSelf: 'center',
-    borderRadius: 10
-  },
-  emText: {
-    top: 15,
-    left: 10,
-    color: colors.white,
-
-  },
-  passwordWrapper: {
-    width: 250,
-    height: 50,    
-    backgroundColor: colors.darkBlue,   
-    alignSelf: 'center',
-    borderRadius: 10
-
-  },
-  pwText: {
-    top: 15,
-    left: 10,
-    color: colors.white,
-  },
-  inputStyle: {
-    fontSize: 15,
-    fontFamily: 'Roboto',
-    color: colors.white,
-
-  },
-  loginText: {
-    fontFamily: 'Roboto',
-    fontSize: 10,
-    color: colors.black,
-    alignSelf: 'center',
-  },
-  buttonWrapper: {    
-    backgroundColor: colors.darkBlue,
-    borderRadius: 10,
-    width: 90,
+  textInput: {
     height: 40,
-    alignSelf: 'center',
-    marginBottom: 10,
-    marginTop: 10,
+    fontSize: 12,
+    width: '80%',
+    color: colors.black,    
+    backgroundColor:'#E0E0E0',
+    borderRadius: 10,
+    marginTop: 8,
+    marginVertical: 15, 
+  }, 
+  imageStyle: {
+    width: 230,
+    height: 230,
+    top: -10,
   },
-  enterText: {
-    fontFamily: 'Roboto',
+  registerButton: {      
+    backgroundColor: colors.darkBlue,
+    width: 80,
+    height: 30,
+    borderRadius: 10,
+  },  
+  registerText:{
     fontSize: 15,
-    color: colors.white,
-    alignSelf: 'center',
-    paddingTop: 8,
-    
-  }
-
-}
-);
+    fontFamily: 'Robot',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: colors.white2,
+    top: 5,
+  },
+});

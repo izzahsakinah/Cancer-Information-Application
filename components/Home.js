@@ -5,29 +5,21 @@ import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { SafeAreaView } from 'react-native-safe-area-context';
 //import { FlatList } from 'react-native-gesture-handler';
-import profile from '../assets/images/blackwidow.png';
-import cancer1 from '../assets/images/cancer1.jpg';
-import cancer2 from '../assets/images/cancer2.jpg';
-import cancer3 from '../assets/images/cancer6.jpg';
-import firebase from 'react-native-firebase';
+import profile from '../assets/images/Breast-cancer.png';
+import imageDetails from '../assets/images/Self-confidence.png';
+import imageNano from '../assets/images/Online-test.png';
+import imageDrugs from '../assets/images/Breast-research.png';
 
 Feather.loadFont();
 Entypo.loadFont();
 
+
 const height = Dimensions.get('window').height;
 
-export default class Home extends React.Component {
-  state = {currentUser: null};
-  componentDidMount() {
-    const {currentUser} = firebase.auth();
-    this.setState({currentUser});
-  }
-  render() {
-    const {currentUser} = this.state;
+const Home = (navigation) => {
 
        return (
          <View style={styles.container}>
-          <ScrollView>
               {/*Header*/}
               <SafeAreaView>
                   <View style={styles.menuWrapper}>
@@ -35,95 +27,110 @@ export default class Home extends React.Component {
                       <View style={styles.homeWrapper}>
                       {/*<Feather name="menu" size={32} color={colors.gray} style={styles.menuIcon} />*/}
                       <Text style={styles.homeTitle}>
-                           Hello, {currentUser && currentUser.email}
+                           Welcome
                       </Text>
                       <Image source={profile} style={styles.profileImage} />
-                      </View>
-                      <Text style={styles.recentTitle}>Recent Activity</Text>
-                      <View style = {{   width: 280, height: 110, top: 50, left: 40, borderRadius: 15, overflow: 'hidden'}}>
-                          <ImageBackground source={cancer1} style={styles.recentImageWrapper}>
-                          <Text style={styles.recentText}>Introduction to Cancer</Text>
-                          </ImageBackground>
                       </View>
                  </View>
               </SafeAreaView>
 
               {/*Discover*/}
               <View style={styles.discoverWrapper}>
+                  <Text style={styles.readText}>Let's Read</Text>
                   <View style={styles.discoverCategoriesWrapper}>
                       <Text style={styles.discoverCategoryText}> 
                      Choose Topic
                       </Text>
-                  </View>              
+                  </View> 
               </View>
 
-            <View style={styles.itemsWrapper}>              
-            <TouchableOpacity onPress= {()=>  this.props.navigation.navigate("Details")
+        <ScrollView horizontal>
+            <View style={styles.itemsWrapper}> 
+            <TouchableOpacity onPress= {()=>  navigation.navigate("Details")
                 }>
-                <ImageBackground source={cancer1}
+                <View
                     style={[
                         styles.discoverItem , {
-                            marginLeft: 20 
-                        }]} 
-                    imageStyle={styles.discoverItemImage}
+                            marginLeft: 20,
+                            width: 144,
+                            height: 190,
+                            borderRadius: 20,
+                            backgroundColor: colors.darkBlue
+                        }]}
                 >
-                    <Text style={styles.discoverItemTitle }>
-                    Cancer
-                    </Text>
+                    
                     <View style={styles.discoverItemDetailsWrapper}>
                     <Text style={styles.discoverItemDetails }>
                        Introduction to Cancer
                     </Text>
+                    <Image 
+                    style={styles.discoverItemImage}
+                    source={imageDetails}> 
+                    </Image>
                     </View>
-                </ImageBackground>
+                </View>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress= {()=>  this.props.navigation.navigate("DetailsNano")
+            <TouchableOpacity onPress= {()=> navigation.navigate("DetailsNano")
                 }>
-                <ImageBackground source={cancer2}
+                 <View
                     style={[
                         styles.discoverItem , {
-                            marginLeft: 20 
-                        }]} 
-                    imageStyle={styles.discoverItemImage}
+                            width: 144,
+                            height: 190,
+                            borderRadius: 20,
+                            backgroundColor: colors.darkBlue
+                        }]}
                 >
-                    <Text style={styles.discoverItemTitle }>
-                    Nanotechnology
-                    </Text>
+                    
                     <View style={styles.discoverItemDetailsWrapper}>
                     <Text style={styles.discoverItemDetails }>
-                    Application of Nanotechnology
+                        Nanotechnology
                     </Text>
+                    <Image 
+                    style={[styles.discoverItemImage ,
+                         {
+                            marginTop: -25,
+                        }]}
+                    source={imageNano}> 
+                    </Image>
                     </View>
-                </ImageBackground>
-            </TouchableOpacity>            
-
-            <TouchableOpacity onPress= {()=>  this.props.navigation.navigate("DetailsDrugs")
-                }>
-                <ImageBackground source={cancer3}
-                    style={[
-                        styles.discoverItem , {
-                            marginLeft: 20 
-                        }]} 
-                    imageStyle={styles.discoverItemImage}
-                >
-                    <Text style={styles.discoverItemTitle }>
-                    Nano Drugs Targetting Cancer Therapy 
-                    </Text>
-                    <View style={styles.discoverItemDetailsWrapper}>
-                    <Text style={styles.discoverItemDetails }>
-                    Greatest Technology in Cancer Therapy
-                    </Text>
-                    </View>
-                </ImageBackground>
+                </View>
             </TouchableOpacity>
-        </View>
 
+            <TouchableOpacity onPress= {()=> navigation.navigate("DetailsDrugs")
+                }> 
+                <View
+                style={[
+                    styles.discoverItem , {
+                        width: 144,
+                        height: 190,
+                        borderRadius: 20,
+                        backgroundColor: colors.darkBlue
+                    }]}
+                 >
+                
+                <View style={styles.discoverItemDetailsWrapper}>
+                <Text style={styles.discoverItemDetails }>
+                   Drugs Technology in Cancer
+                </Text>
+                <Image 
+                style={[styles.discoverItemImage, {
+                    width: 124,
+                    height: 124,
+                    bottom:10,
+                }]}
+                source={imageDrugs}> 
+                </Image>
+                </View>
+                </View>
+                </TouchableOpacity>
+            </View>
         </ScrollView>
     </View>
             );
      };
-};
+
 
      //const renderActivitiesItem = ({item}) => {
          //return (
@@ -161,14 +168,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         color: colors.black,
-        backgroundColor: '#E8DFDF',
-        height: height,
-        
+        backgroundColor: colors.white,
+        height: height,        
+        justifyContent: 'center',
+        alignItems: 'center',        
     },
     menuWrapper: {
-        backgroundColor: '#4527A0',
+        backgroundColor: colors.darkBlue,
         width: 360,
-        height: 180,
+        height: 190,
+        borderRadius: 20,
+        top: -20,
     },
     homeWrapper: {
         top: 25,
@@ -177,17 +187,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     profileImage: {
-        width: 62,
-        height: 62,
-        borderRadius: 63,
-        borderWidth: 1,
-        borderColor: colors.white,
-        marginTop: 5,        
-        marginHorizontal: 50,
+        width: 134,
+        height: 143,
+        top: 10,      
       },
     homeTitle: {
         fontFamily: 'Roboto',
-        color: colors.orchid,
+        color: colors.white,
         fontSize: 30,
         marginRight: 30,
         fontWeight: 'bold',
@@ -221,36 +227,44 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         //marginRight: 80,
         color: colors.white,
-        top: 10,
+        top: 30,
         left: 15,
     },
     discoverCategoriesWrapper: {
-        marginHorizontal: 30,
+        marginHorizontal: 120,
         //flexDirection: 'column',
         marginTop: 30,
     },
     discoverCategoryText: {
-        marginRight: 20,
-        fontFamily: 'sans-serif-medium',
+        fontFamily: 'Roboto-medium',
         fontSize: 18,
         color: colors.black,
-        top: 60,
+        top: -10,
+        right: 100,
+    },
+    readText: {
+        fontFamily: 'Roboto',
+        fontSize: 18,
+        fontWeight: 'bold',
+        left: 20,
+        color: colors.black,
     },
     discoverItemsWrapper: {
         paddingVertical: 70,
     },
     discoverItem:{
-        width: 200,
-        height: 210,
-        justifyContent: 'flex-end',
-        paddingHorizontal: 30,
-        paddingVertical: 30,
+        width: 174,
+        height: 195,
+        paddingHorizontal: 15,
+        paddingVertical: 70,
         marginRight : 20,
-        //marginBottom: 15,
+        marginBottom: 15,
     },
     discoverItemImage:{
-        borderRadius: 20,
-        top: 0,
+        width: 134,
+        height: 134,
+        marginTop: -48,
+        alignSelf: 'center',
     },
     discoverItemTitle:{
         fontFamily: 'sans-serif-medium',
@@ -258,16 +272,12 @@ const styles = StyleSheet.create({
         color: colors.white,
         left: 20,
     },
-    discoverItemDetailsWrapper:{
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 5,
-    },
     discoverItemDetails:{
-        marginLeft: 20,
-        fontFamily: 'sans-serif-light',
-        fontSize: 12,
-        color: colors.white,
+        fontFamily: 'Roboto',
+        fontSize: 15,
+        color: colors.white2,
+        top: -60, 
+        textAlign: 'center',
     },
     activitiesWrapper: {
         marginTop: 10,
@@ -300,6 +310,9 @@ const styles = StyleSheet.create({
     }, 
     itemsWrapper: {
         flexDirection: 'row',
+        top: 10,
     },
 }
 )
+
+export default Home;

@@ -1,51 +1,94 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions, ImageBackground, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity} from 'react-native';
 import colors from '../assets/colors/colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import image1 from '../assets/images/cancer1.jpg';
-import image2 from '../assets/images/cancer2.jpg';
-import image3 from '../assets/images/cancer6.jpg';
+import image1 from '../assets/images/Questions-pana.png';
+import image2 from '../assets/images/Young-happy.png';
+import image3 from '../assets/images/Mental-health.png';
+import image4 from '../assets/images/Breast-research.png';
+
 const height = Dimensions.get('window').height;
 
 const Quiz =({ navigation }) => {
 
   return (    
-    <View style={styles.container}>
-        <View style={styles.quizTopicsWrapper}>
-          <SafeAreaView>
+    <ScrollView>    
+
+    <View style={styles.container}>      
+      <SafeAreaView>
+          <View style={styles.menuWrapper}>
+            <View style={styles.homeWrapper}>
             <Text style={styles.quizTopicsText}> 
-                  Choose Topic
+                 Quizzes
             </Text>
-
+            <Image source={image1} style={styles.imageStyle}/>
+          </View>
+          </View>
+          
+           
+          <View style={styles.wrapperDetails}>
             <TouchableOpacity onPress= {()=> navigation.navigate("QuizNano")}>
-              <ImageBackground source={image2}  style={[ styles.quizItem , 
+            <View style={styles.quizWrapper}>              
+            <Text style={[styles.quizTitle, {
+                    left: 25,
+                }]}>Introduction to Cancer</Text>
+                <Image source={image2}  style={[ styles.quizItem , 
               {
-                      marginBottom: 10,
-                  }]} 
-                    imageStyle={styles.quizImage}>
-                <Text style={styles.quizTitle }>Nanotechnology</Text>
-                <View style={styles.quizDetailsWrapper}>
-                    <Text style={styles.quizDetails }>
-                    Test Your Knowledge About Nanotechnology
-                    </Text>
-                    </View>
-                </ImageBackground>
+                      width: 100,
+                      height: 100,
+                      marginLeft: -15,
+                  }]} />
+            </View>
             </TouchableOpacity>
+            </View>
+          
 
-            <TouchableOpacity onPress= {()=> navigation.navigate("QuizDrugs")}>
-            <ImageBackground source={image3} style={styles.quizItem} 
-                    imageStyle={styles.quizImage}>
-                <Text style={styles.quizTitle }>Nano Drugs Treatment in Cancer</Text>
-                <View style={styles.quizDetailsWrapper}>
-                    <Text style={styles.quizDetails }>
-                    Test Your Knowledge About Nanotechnology
-                    </Text>
-                    </View>
-                </ImageBackground>
+          <View style={styles.wrapperDetails}>
+            <TouchableOpacity onPress= {()=> navigation.navigate("QuizNano")}>
+            <View style={styles.quizWrapper}>           
+                <Image source={image3}  style={[ styles.quizItem , 
+              {
+                      width: 100,
+                      height: 100,
+                      marginLeft: 1,
+                  }]} />
+                <Text style={[styles.quizTitle, {
+                    right: 40,
+                }]}>Nanotechnology</Text>
+            </View>
             </TouchableOpacity>
-            </SafeAreaView>
+            </View>
+          
+            <View style={[styles.wrapperDetails, {
+            }]}>
+            <TouchableOpacity onPress= {()=> navigation.navigate("QuizDrugs")}>
+            <View style={styles.quizWrapper}>
+              <View style={{backgroundColor: colors.darkBlue, width:140, height: 40, position: 'absolute',
+
+              }}>
+              <Text style={[styles.quizTitle, 
+              {   
+                textAlign: 'center',
+                left: 10,
+              }]}>Nano Drugs Treatment in Cancer</Text>
+              </View>
+              <Image source={image4} style={[styles.quizItem, 
+              {                
+                    width: 90,
+                    height: 90,
+                    right: -180,
+                    top: 5,
+
+                  }]}
+              >
+               </Image>
+             </View>
+            </TouchableOpacity>
+            </View>
+        </SafeAreaView>
         </View>
-        </View>
+        </ScrollView>
+
          );
   };
         
@@ -53,60 +96,67 @@ const Quiz =({ navigation }) => {
 const styles = StyleSheet.create({ 
 
   quizItem: {
-    width: 250,
-    height: 200,
-    justifyContent: 'flex-end',
-    paddingHorizontal: 30,
-    paddingVertical: 30,
-    marginLeft : -23,
-    top: 50,
-  },
-  quizImage: { 
-    borderRadius: 20,
-    marginBottom: 20,
 
   },
   quizTitle: { 
-    //justifyContent: 'flex-end',
-    paddingHorizontal: 1,
-    paddingVertical: 5,
     color: colors.white,
-    //marginRight : 20,
+    textAlign: 'center',
+    fontFamily: 'Roboto',
+    fontSize: 15,
+    right: 20,
+  },  
+  menuWrapper: {
+    backgroundColor: colors.darkBlue,
+    width: 360,
+    height: 210,
+    borderRadius: 20,
+    marginTop: -10,
+  },  
+  homeWrapper: {
+    top: 25,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  quizDetailsWrapper:{ 
-    //flexDirection: 'column',
-    marginTop: 5,
-  },
-  quizDetails: {
-    paddingVertical: 10,
-    fontFamily: 'sans-serif-light',
-    fontSize: 12,
-    color: colors.white,
-
+  imageStyle:{
+    width: 170,
+    height: 170,    
+    marginTop: 28,
   },
   container: {
     flex: 1,
-    backgroundColor: '#E8DFDF',
-    height: height,
+    backgroundColor: colors.white2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: -55,
+    width:'100%',
+    height:'100%',
     
   },
-  quizWrapper: {    
-        //marginHorizontal: 20,
-        //marginTop: 20,
-  },
-  quizTopicsWrapper: {
-    marginHorizontal: 80,
-    //flexDirection: 'column',
-
-  },
   quizTopicsText: {
-    fontFamily: 'sans-serif-medium',
-    fontSize: 18,
-    color: colors.black,
-    top: 20, 
-    textAlign: 'center',
+    fontFamily: 'Roboto',
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: colors.white2,
+    top: 10, 
+    left: 20,
 
   },
+  wrapperDetails: {
+    backgroundColor: colors.darkBlue,
+    width: 276,
+    height: 100,
+    alignSelf: 'center',
+    top: 28,
+    borderRadius: 20,    
+    marginBottom: 18,
+  },
+  quizWrapper: {    
+    flexDirection: 'row',
+    justifyContent: 'space-between',    
+    alignItems: 'center', 
+    
+  }
 });
 
 export default Quiz;

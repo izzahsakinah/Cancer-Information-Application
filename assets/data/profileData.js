@@ -1,7 +1,7 @@
 const profileData = [
     {
         id: 'profileA',
-        name: 'Corrienna binti Abdul Talib',
+        name: 'corrienna@yahoo.com',
         country: 'Malaysia',
         description: 'Prevent is better than cure',
     },

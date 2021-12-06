@@ -6,44 +6,39 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import profile from '../assets/images/blackwidow.png';
+import profile from '../assets/images/Profile-interface.png';
 import colors from '../assets/colors/colors';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import profileData from '../assets/data/profileData';
 import { FlatList } from 'react-native-gesture-handler';
-import Entypo from 'react-native-vector-icons/Entypo';
+import location from '../assets/images/location.png';
 
-
-Entypo.loadFont();
 
 const Profile = () => {
   const renderProfile = ({item}) => {
     return (
-        <View style={styles.container}>          
+      <View>     
+      <Text style={styles.textProfile}>Profile</Text>
+        <View style={styles.container}>
           <SafeAreaView>
             <View>
               <Image source={profile} style={styles.profileImage} />  
             </View>  
-          </SafeAreaView>
         <View style={styles.detailsNameWrapper}>
             <Text style = {styles.detailsName}>
-              {item.name}
+              {$username}
             </Text>
             </View>
 
           <View style={styles.detailsCountryWrapper}>
-          <Entypo style={styles.locationImage} name="location-pin" size={25} color={colors.black} />
+          <Image style={styles.locationImage} source={location} />
             <Text style = {styles.detailsCountry}>
               {item.country}
             </Text>
-            </View>
-
-          {/*<View style={styles.detailsDescriptionWrapper}>
-            <Text style = {styles.detailsDescription}>
-              {item.description}
-            </Text>
-    </View>*/}
+            </View>            
+          </SafeAreaView>
         </View>
+        </View> 
 
    );
     };
@@ -64,25 +59,24 @@ const Profile = () => {
 const styles = StyleSheet.create({
 
   container: {     
-    backgroundColor:'#ba55d3',
-    height:550,
+    backgroundColor:'#013A63',
+    height:350,
     alignItems:'center', 
     borderRadius: 25,
-    marginTop: 200,
+    marginTop: 250,    
+    justifyContent: 'center',
+    alignItems: 'center',   
     //marginBottom: 10,
   },
   menuWrapper: {
     alignItems: 'center',
   },
   profileImage: {
-    width: 220,
-    height: 220,
-    borderRadius: 220,
-    borderWidth: 3,
-    borderColor: colors.white,
-    marginTop: -120,
-    position: 'absolute',
-    right: -110,
+    width: 240,
+    height: 240,
+    margin: -320,
+    position: 'absolute',    
+    alignSelf: 'center',
     //alignItems: 'center',
     //shadowColor: '#000',
     //shadowOffset: {
@@ -103,7 +97,7 @@ const styles = StyleSheet.create({
   detailsNameWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    top: 150,
+    top: -50,
   },
   
   detailsCountry: {
@@ -115,8 +109,21 @@ const styles = StyleSheet.create({
   detailsCountryWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    top: 150,
+    top: -50,
+    marginLeft: 40,
   },
+  textProfile:{
+    fontSize: 28,
+    fontWeight: 'bold',
+    fontFamily: 'Roboto',
+    color: colors.black,
+    textAlign: 'center',
+    top: 20,
+  },
+  locationImage: {
+    width: 20,
+    height: 20,
+  }
 });
 
 export default Profile;
