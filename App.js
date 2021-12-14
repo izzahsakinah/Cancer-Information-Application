@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Image} from 'react-native';
 import 'react-native-gesture-handler';
 import Home from './components/Home';
-import Splash from './components/Splash';
-import Register from './components/Register';
-import Login from './components/Login';
+//import Splash from './components/Splash';
+//import Register from './components/Register';
+//import Login from './components/Login';
 import Details from './components/Details';
 import DetailsNano from './components/DetailsNano';
 import DetailsDrugs from './components/DetailsDrugs';
@@ -62,7 +62,7 @@ const App = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen
+        {/*<Stack.Screen
           name="Splash"
           component={Splash}
           options={{headerShown : false,
@@ -79,19 +79,19 @@ const App = () => {
           component={Login}
           options={{headerShown : false,
           }}
-        />
+        />*/}
         <Stack.Screen
           name="TabNavigator"
           component={TabNavigator}
           options={{headerShown : false,
           }}
           />
-         <Stack.Screen
+         {/*<Stack.Screen
           name="Home"
           component={Home}
           options={{headerShown : false,
           }}
-          />
+        />*/}
           <Stack.Screen
           name="Details"
           component={Details}

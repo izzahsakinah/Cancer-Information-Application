@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
 import colors from '../assets/colors/colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import image1 from '../assets/images/Questions-pana.png';
@@ -7,7 +7,6 @@ import image2 from '../assets/images/Young-happy.png';
 import image3 from '../assets/images/Mental-health.png';
 import image4 from '../assets/images/Breast-research.png';
 
-const height = Dimensions.get('window').height;
 
 const Quiz =({ navigation }) => {
 
@@ -27,7 +26,7 @@ const Quiz =({ navigation }) => {
           
            
           <View style={styles.wrapperDetails}>
-            <TouchableOpacity onPress= {()=> navigation.navigate("QuizNano")}>
+            <TouchableOpacity onPress= {()=> navigation.navigate("QuizIntro")}>
             <View style={styles.quizWrapper}>              
             <Text style={[styles.quizTitle, {
                     left: 25,

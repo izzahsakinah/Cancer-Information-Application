@@ -13,7 +13,17 @@ const colors =
             mediumpurple: '#9370db',
             orchid: '#da70d6',
             darkBlue: '#013A63',
-            cream: '#F2EFEF'
+            cream: '#F2EFEF',
+
+            primary: "#252c4a",
+            secondary: '#1E90FF',
+            accent: '#3498db',
+            
+            success: '#00C851',
+            error: '#ff4444',
+        
+            black1: "#171717",
+            background: "#252C4A"
           
     }
 

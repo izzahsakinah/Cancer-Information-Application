@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   Image,
-  ScrollView,
 } from 'react-native';
 import profile from '../assets/images/Profile-interface.png';
 import colors from '../assets/colors/colors';
@@ -14,26 +13,70 @@ import { FlatList } from 'react-native-gesture-handler';
 import location from '../assets/images/location.png';
 
 
-const Profile = () => {
-  const renderProfile = ({item}) => {
+class Profile extends Component {
+
+  constructor(props)
+  {
+    super(props);
+    this.state = {username:'', useremail:''};
+  }
+  componentDidMount() {
+    this.ambilListData();
+  }
+  async ambilListData() {
+    await fetch(this.url)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Hasil yang didapat: " + JSON.stringify(json.data.result));
+        this.setState({ listData: json.data.result });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  klikSimpan() {
+    if (this.state.nama == "" || this.state.alamat == "") {
+      alert("Silakan masukkan nama dan alamat");
+    } else {
+      if (this.state.idEdit) {
+        var urlAksi = this.url + "/?op=update&id=" + this.state.idEdit;
+      } else {
+        var urlAksi = this.url + "/?op=create";
+      }
+
+      fetch(urlAksi, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: "nama=" + this.state.nama + "&alamat=" + this.state.alamat,
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          this.setState({ nama: "" });
+          this.setState({ alamat: "" });
+          this.ambilListData();
+        });
+    }
+  }
+
+  render(){
     return (
       <View>     
       <Text style={styles.textProfile}>Profile</Text>
         <View style={styles.container}>
           <SafeAreaView>
             <View>
-              <Image source={profile} style={styles.profileImage} />  
+              <Image source={profileData} style={styles.profileImage} />  
             </View>  
         <View style={styles.detailsNameWrapper}>
             <Text style = {styles.detailsName}>
-              {$username}
             </Text>
             </View>
 
           <View style={styles.detailsCountryWrapper}>
           <Image style={styles.locationImage} source={location} />
             <Text style = {styles.detailsCountry}>
-              {item.country}
             </Text>
             </View>            
           </SafeAreaView>
@@ -41,20 +84,20 @@ const Profile = () => {
         </View> 
 
    );
-    };
-
-  return (
-    <View >
-       <View style={styles.infoWrapper}>
-                        <FlatList
-                            data={profileData}
-                            renderItem={renderProfile}
-                            keyExtractor={(item) => item.id}
-                        />
-       </View> 
-    </View>
-  );
-};
+  };
+}
+  //return (
+    //<View >
+      // <View style={styles.infoWrapper}>
+                       // <FlatList
+                         //   data={profileData}
+                        //    renderItem={renderProfile}
+                         //   keyExtractor={(item) => item.id}
+                        ///>
+      // </View> 
+    //</View>
+  //);
+//};
 
 const styles = StyleSheet.create({
 
