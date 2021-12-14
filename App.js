@@ -92,7 +92,7 @@ const App = () => {
           options={{headerShown : false,
           }}
         />*/}
-          <Stack.Screen
+         {/*<Stack.Screen
           name="Details"
           component={Details}
           options={{headerShown : false,
@@ -109,7 +109,7 @@ const App = () => {
           component={DetailsDrugs}
           options={{headerShown : false,
           }}
-          />
+        />*/}
           <Stack.Screen
           name="QuizIntro"
           component={QuizIntro}

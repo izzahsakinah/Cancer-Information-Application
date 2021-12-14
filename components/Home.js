@@ -44,7 +44,7 @@ const Home = (navigation) => {
                   </View> 
               </View>
 
-        <ScrollView horizontal>
+        <ScrollView horizontal showsVerticalScrollIndicator={false}>
             <View style={styles.itemsWrapper}> 
             <TouchableOpacity onPress= {()=>  navigation.navigate("Details")
                 }>
@@ -55,7 +55,7 @@ const Home = (navigation) => {
                             width: 144,
                             height: 190,
                             borderRadius: 20,
-                            backgroundColor: colors.darkBlue
+                            backgroundColor: colors.primary,
                         }]}
                 >
                     
@@ -79,7 +79,7 @@ const Home = (navigation) => {
                             width: 144,
                             height: 190,
                             borderRadius: 20,
-                            backgroundColor: colors.darkBlue
+                            backgroundColor: colors.primary,
                         }]}
                 >
                     
@@ -106,7 +106,7 @@ const Home = (navigation) => {
                         width: 144,
                         height: 190,
                         borderRadius: 20,
-                        backgroundColor: colors.darkBlue
+                        backgroundColor: colors.primary,
                     }]}
                  >
                 
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',        
     },
     menuWrapper: {
-        backgroundColor: colors.darkBlue,
+        backgroundColor: colors.primary,
         width: 360,
         height: 190,
         borderRadius: 20,

@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
-import { View, Text, SafeAreaView, StatusBar, Image, TouchableOpacity, Modal, Animated } from 'react-native'
-import data from '../data/introData';
+import React, { useState, Component } from 'react'
+import { View, Text, ScrollView, SafeAreaView, StatusBar, TouchableOpacity, Modal, Animated, Dimensions } from 'react-native'
+import data from '../assets/data/introData';
+import Entypo from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/colors';
+
+MaterialCommunityIcons.loadFont();
 
 const QuizIntro = () => {
 
@@ -66,20 +69,27 @@ const QuizIntro = () => {
   const renderQuestion = () => {
   return (
       <View style={{
-          marginVertical: 40
+          marginVertical: 20,
       }}>
           {/* Question Counter */}
           <View style={{
               flexDirection: 'row',
-              alignItems: 'flex-end'
+              //alignItems: 'flex-end'
+              top: -16,
           }}>
-             <Text style={{color: colors.white2, fontSize: 20, opacity: 0.6, marginRight: 2}}>{currentQuestionIndex+1}</Text>
-                    <Text style={{color: colors.white2, fontSize: 18, opacity: 0.6}}>/ {allQuestions.length}</Text>
+             <Text style={{color: colors.white2, 
+                          fontSize: 20, 
+                          opacity: 0.6, 
+                          marginRight: 2}}>
+                {currentQuestionIndex+1}
+                </Text>
+                    <Text style={{color: colors.white2, fontSize: 20, opacity: 0.6}}>/ {allQuestions.length}</Text>
                 </View>
                  {/* Question */}
                  <Text style={{
                     color: colors.white2,
-                    fontSize: 30
+                    fontSize: 20,
+                    top: 0,
                 }}>{allQuestions[currentQuestionIndex]?.question}</Text>
             </View>
         )
@@ -106,9 +116,11 @@ const QuizIntro = () => {
                         : option==currentOptionSelected 
                         ? colors.error +'20'
                         : colors.secondary+'20',
-                        height: 60, borderRadius: 20,
+                        height: 60, 
+                        borderRadius: 20,
                         flexDirection: 'row',
                         alignItems: 'center', 
+                        Top: -10,
                         justifyContent: 'space-between',
                         paddingHorizontal: 20,
                         marginVertical: 10
@@ -120,8 +132,8 @@ const QuizIntro = () => {
                     {
                         option==correctOption ? (
                             <View style={{
-                                width: 30, 
-                                height: 30, 
+                                width: 20, 
+                                height: 20, 
                                 borderRadius: 30/2,
                                 backgroundColor: colors.success,
                                 justifyContent: 'center', 
@@ -163,11 +175,11 @@ const QuizIntro = () => {
               style={{
                   marginTop: 20, 
                   width: '100%', 
-                  backgroundColor: colors.accent, 
+                  backgroundColor: colors.secondary, 
                   padding: 20, 
                   borderRadius: 5
               }}>
-                  <Text style={{fontSize: 20, color: colors.white, textAlign: 'center'}}>Next</Text>
+                  <Text style={{fontSize: 20, color: colors.white2, textAlign: 'center'}}>Next</Text>
               </TouchableOpacity>
           )
       }else{
@@ -181,11 +193,13 @@ const QuizIntro = () => {
   })
   const renderProgressBar = () => {
       return (
+        
           <View style={{
-              width: '100%',
+              width: '90%',
               height: 20,
               borderRadius: 20,
               backgroundColor: '#00000020',
+              top: -10,
 
           }}>
               <Animated.View style={[{
@@ -200,21 +214,23 @@ const QuizIntro = () => {
           </View>
       )
   }
-  return (
-    <SafeAreaView style={{
-        flex: 1
-    }}>
+return (
+<ScrollView>
+    <SafeAreaView >
         <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+      
         <View style={{
-            flex: 1,
             paddingVertical: 40,
             paddingHorizontal: 16,
             backgroundColor: colors.background,
-            position:'relative'
+            position:'relative', 
+            height: 600,
+            width: '100%',
         }}>
+       
            {/* ProgressBar */}
            { renderProgressBar() }
-
+      
            {/* Question */}
            {renderQuestion()}
 
@@ -232,7 +248,7 @@ const QuizIntro = () => {
           >
             <View style={{
                        flex: 1,
-                       backgroundColor: colors.primary,
+                       backgroundColor: colors.darkBlue,
                        alignItems: 'center',
                        justifyContent: 'center'
                    }}>
@@ -244,7 +260,7 @@ const QuizIntro = () => {
                            alignItems: 'center'
                        }}>
                           <Text style={{fontSize: 30, fontWeight: 'bold'}}>
-                              { score> (allQuestions.length/2) ? 'Congratulations!' : 'Oops!' }
+                              { score> (allQuestions.length/2) ? 'Congratulations!' : 'Try again another time' }
                               </Text>
 
                               <View style={{
@@ -263,7 +279,8 @@ const QuizIntro = () => {
                            </View>
                             {/* Retry Quiz button */}
                             <TouchableOpacity
-                           onPress={restartQuiz}
+                           //onPress={restartQuiz}
+                           onPress= {()=> navigation.navigate("Quiz")}
                            style={{
                                backgroundColor: colors.accent,
                                padding: 20, 
@@ -271,30 +288,34 @@ const QuizIntro = () => {
                                borderRadius: 20
                            }}>
                               <Text style={{
-                                   textAlign: 'center', color: colors.white, fontSize: 20
-                               }}>Retry Quiz</Text>
+                                   textAlign: 'center', color: colors.white2, fontSize: 20
+                               }}>Back</Text>
                            </TouchableOpacity>
                        </View>
                    </View>
                </Modal>
+                <View> 
+                <Entypo name='close' color={colors.white} size={18}  />
+                </View>
                 {/* Background Image */}
-                <Image
-                source={require('../assets/images/DottedBG.png')}
+                {/*<Image
+                source={require('../assets/images/Online-test.png')}
                 style={{
-                    width: 100,
-                    height: 130,
+                    width: 280,
+                    height: 230,
                     zIndex: -1,
                     position: 'absolute',
                     bottom: 0,
-                    left: 0,
+                    left: -10,
                     right: 0,
                     opacity: 0.5
                 }}
                 resizeMode={'contain'}
-                />
+            />*/}
 
            </View>
        </SafeAreaView>
+       </ScrollView>
     )
 }
 

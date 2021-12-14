@@ -20,45 +20,6 @@ class Profile extends Component {
     super(props);
     this.state = {username:'', useremail:''};
   }
-  componentDidMount() {
-    this.ambilListData();
-  }
-  async ambilListData() {
-    await fetch(this.url)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log("Hasil yang didapat: " + JSON.stringify(json.data.result));
-        this.setState({ listData: json.data.result });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-  klikSimpan() {
-    if (this.state.nama == "" || this.state.alamat == "") {
-      alert("Silakan masukkan nama dan alamat");
-    } else {
-      if (this.state.idEdit) {
-        var urlAksi = this.url + "/?op=update&id=" + this.state.idEdit;
-      } else {
-        var urlAksi = this.url + "/?op=create";
-      }
-
-      fetch(urlAksi, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: "nama=" + this.state.nama + "&alamat=" + this.state.alamat,
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          this.setState({ nama: "" });
-          this.setState({ alamat: "" });
-          this.ambilListData();
-        });
-    }
-  }
 
   render(){
     return (
@@ -67,7 +28,7 @@ class Profile extends Component {
         <View style={styles.container}>
           <SafeAreaView>
             <View>
-              <Image source={profileData} style={styles.profileImage} />  
+              <Image source={profile} style={styles.profileImage} />  
             </View>  
         <View style={styles.detailsNameWrapper}>
             <Text style = {styles.detailsName}>
@@ -106,8 +67,8 @@ const styles = StyleSheet.create({
     height:350,
     alignItems:'center', 
     borderRadius: 25,
-    marginTop: 250,    
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
+    bottom: -210,
     alignItems: 'center',   
     //marginBottom: 10,
   },
@@ -117,7 +78,7 @@ const styles = StyleSheet.create({
   profileImage: {
     width: 240,
     height: 240,
-    margin: -320,
+    margin: -525,
     position: 'absolute',    
     alignSelf: 'center',
     //alignItems: 'center',
@@ -140,7 +101,7 @@ const styles = StyleSheet.create({
   detailsNameWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    top: -50,
+    margin: -480,  
   },
   
   detailsCountry: {
@@ -152,8 +113,7 @@ const styles = StyleSheet.create({
   detailsCountryWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    top: -50,
-    marginLeft: 40,
+    top: 20,
   },
   textProfile:{
     fontSize: 28,

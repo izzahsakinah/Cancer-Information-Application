@@ -10,10 +10,10 @@ import image4 from '../assets/images/Breast-research.png';
 
 const Quiz =({ navigation }) => {
 
-  return (    
-    <ScrollView>    
+  return (
+    <ScrollView> 
 
-    <View style={styles.container}>      
+    <View style={styles.container}>
       <SafeAreaView>
           <View style={styles.menuWrapper}>
             <View style={styles.homeWrapper}>
@@ -62,7 +62,7 @@ const Quiz =({ navigation }) => {
             }]}>
             <TouchableOpacity onPress= {()=> navigation.navigate("QuizDrugs")}>
             <View style={styles.quizWrapper}>
-              <View style={{backgroundColor: colors.darkBlue, width:140, height: 40, position: 'absolute',
+              <View style={{backgroundColor: colors.primary, width:140, height: 40, position: 'absolute',
 
               }}>
               <Text style={[styles.quizTitle, 
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     right: 20,
   },  
   menuWrapper: {
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.primary,
     width: 360,
     height: 210,
     borderRadius: 20,
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
 
   },
   wrapperDetails: {
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.primary,
     width: 276,
     height: 100,
     alignSelf: 'center',
