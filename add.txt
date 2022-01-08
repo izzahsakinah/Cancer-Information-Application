@@ -254,3 +254,21 @@ git remote add origin https://github.com/username/flutterapp.git
 git push or 
 
 git push --set-upstream origin master
+
+=========================================================================
+PUSH EXISTING REPO
+=========================================================================
+git remote add origin https://github.com/queenofcat/Sentiment-Analysis-of-Cyberbullying-Twitter-Detection.git
+git branch -M main
+git push -u origin main
+
+=========================================================================
+CREATE NEW REPO ON CL
+=========================================================================
+echo "# Sentiment-Analysis-of-Cyberbullying-Twitter-Detection" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/queenofcat/Sentiment-Analysis-of-Cyberbullying-Twitter-Detection.git
+git push -u origin main
