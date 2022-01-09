@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image, View, Text} from 'react-native';
 import 'react-native-gesture-handler';
 import Home from './components/Home';
+import Note from './components/Note';
 //import Splash from './components/Splash';
 //import Register from './components/Register';
 //import Login from './components/Login';
@@ -14,14 +15,17 @@ import QuizIntro from './components/QuizIntro';
 import QuizNano from './components/QuizNano';
 import QuizDrugs from './components/QuizDrugs';
 import colors from './assets/colors/colors';
-import home from './assets/images/home(1).png';
+import home from './assets/images/home.png';
 import brain from './assets/images/brain.png';
+import note from './assets/images/note.png';
 import user from './assets/images/user(1).png';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
+import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import {NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -30,38 +34,101 @@ Feather.loadFont();
 MaterialCommunityIcons.loadFont();
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator(); 
+const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={{
-      style: styles.tabBarIcon,
-      backgroundColor:  colors.orchid,
-      activeTintColor: colors.darkGray,
-      inactiveTintColor: colors.black,
-      tabBarShowLabel: false,
-      headerShown: false,
-    }}>
-      <Tab.Screen name="Home" component={Home} options= {{
-        tabBarIcon: () => (<Image style={styles.Image} source={home} />),
-      }}
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: '#0b2c54',
+        tabBarInactiveTintColor: '#9e9e9e',
+        // tabBarShowLabel: false,
+        // headerShown: false,
+      }}>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: 'MyNanoria',
+          headerStyle: {
+            backgroundColor: '#0b2c54',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'normal',
+          },
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons
+              name="home-variant"
+              color={color}
+              size={26}
+            />
+          ),
+        }}
       />
-     <Tab.Screen name="Quiz" component={Quiz} options= {{
-        tabBarIcon: () => (<Image style={styles.Image} source={brain} />),
-      }}
-    />
-      <Tab.Screen name="Profile" component={Profile} options= {{
-        tabBarIcon: () => (<Image style={styles.Image} source={user} />),
-      }}
+      <Tab.Screen
+        name="Note"
+        component={Note}
+        options={{
+          title: 'MyNanoria',
+          headerStyle: {
+            backgroundColor: '#0b2c54',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'normal',
+          },
+          tabBarLabel: 'Note',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="note-text" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Quiz"
+        component={Quiz}
+        options={{
+          title: 'MyNanoria',
+          headerStyle: {
+            backgroundColor: '#0b2c54',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'normal',
+          },
+          tabBarLabel: 'Quiz',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="brain" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          title: 'MyNanoria',
+          headerStyle: {
+            backgroundColor: '#0b2c54',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'normal',
+          },
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="contact-page" color={color} size={26} />
+          ),
+        }}
       />
     </Tab.Navigator>
   );
 };
 
 const App = () => {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
         {/*<Stack.Screen
           name="Splash"
           component={Splash}
@@ -83,58 +150,50 @@ const App = () => {
         <Stack.Screen
           name="TabNavigator"
           component={TabNavigator}
-          options={{headerShown : false,
-          }}
-          />
-         {/*<Stack.Screen
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="Home"
           component={Home}
-          options={{headerShown : false,
-          }}
-        />*/}
-         {/*<Stack.Screen
+          options={{title: 'My home'}}
+        />
+        <Stack.Screen
           name="Details"
           component={Details}
-          options={{headerShown : false,
-          }}
-          />
-          <Stack.Screen
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="DetailsNano"
           component={DetailsNano}
-          options={{headerShown : false,
-          }}
-          />
-          <Stack.Screen
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="DetailsDrugs"
           component={DetailsDrugs}
-          options={{headerShown : false,
-          }}
-        />*/}
-          <Stack.Screen
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="QuizIntro"
           component={QuizIntro}
-          options={{headerShown : false,
-          }}
-          />
-          <Stack.Screen
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="QuizNano"
           component={QuizNano}
-          options={{headerShown : false,
-          }}
-          />
-          <Stack.Screen
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="QuizDrugs"
           component={QuizDrugs}
-          options={{headerShown : false,
-          }}
+          options={{headerShown: false}}
         />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
-const styles = StyleSheet.create ({
-  tabBarIcon: { 
+const styles = StyleSheet.create({
+  tabBarIcon: {
     backgroundColor: colors.orchid,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
@@ -142,8 +201,7 @@ const styles = StyleSheet.create ({
   Image: {
     width: 20,
     height: 20,
-  }
+  },
 });
-
 
 export default App;
