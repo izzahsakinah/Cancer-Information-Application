@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, StatusBar} from 'react-native';
 import colors from '../assets/colors/colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import image1 from '../assets/images/Questions-pana.png';
@@ -11,32 +11,30 @@ import image4 from '../assets/images/Breast-research.png';
 const Quiz =({ navigation }) => {
 
   return (
-    <ScrollView> 
-
+    <ScrollView>       
+      <StatusBar barStyle="light-content" backgroundColor= '#0b2c54' />
     <View style={styles.container}>
       <SafeAreaView>
-          <View style={styles.menuWrapper}>
-            <View style={styles.homeWrapper}>
+          <View style={styles.homeWrapper}>
             <Text style={styles.quizTopicsText}> 
-                 Quizzes
+                 Quiz
             </Text>
-            <Image source={image1} style={styles.imageStyle}/>
-          </View>
           </View>
           
            
           <View style={styles.wrapperDetails}>
             <TouchableOpacity onPress= {()=> navigation.navigate("QuizIntro")}>
             <View style={styles.quizWrapper}>              
-            <Text style={[styles.quizTitle, {
-                    left: 25,
-                }]}>Introduction to Cancer</Text>
                 <Image source={image2}  style={[ styles.quizItem , 
               {
                       width: 100,
                       height: 100,
-                      marginLeft: -15,
+                      marginLeft: 1,
                   }]} />
+                   <Text style={[styles.quizTitle, {
+                    right: 40,
+                }]}>Introduction to Cancer</Text>
+           
             </View>
             </TouchableOpacity>
             </View>
@@ -52,7 +50,7 @@ const Quiz =({ navigation }) => {
                       marginLeft: 1,
                   }]} />
                 <Text style={[styles.quizTitle, {
-                    right: 40,
+                    right: 80,
                 }]}>Nanotechnology</Text>
             </View>
             </TouchableOpacity>
@@ -61,26 +59,20 @@ const Quiz =({ navigation }) => {
             <View style={[styles.wrapperDetails, {
             }]}>
             <TouchableOpacity onPress= {()=> navigation.navigate("QuizDrugs")}>
-            <View style={styles.quizWrapper}>
-              <View style={{backgroundColor: colors.primary, width:140, height: 40, position: 'absolute',
-
-              }}>
-              <Text style={[styles.quizTitle, 
-              {   
-                textAlign: 'center',
-                left: 10,
-              }]}>Nano Drugs Treatment in Cancer</Text>
-              </View>
+            <View style={styles.quizWrapper}>              
               <Image source={image4} style={[styles.quizItem, 
               {                
                     width: 90,
                     height: 90,
-                    right: -180,
-                    top: 5,
-
-                  }]}
-              >
+                    marginLeft: 4,
+                  }]}>
                </Image>
+               <Text style={[styles.quizTitle,
+              {   
+                textAlign: 'center',
+                right:1,
+              }]}>Nano Drugs Treatment in Cancer</Text>
+            
              </View>
             </TouchableOpacity>
             </View>
@@ -94,13 +86,11 @@ const Quiz =({ navigation }) => {
 
 const styles = StyleSheet.create({ 
 
-  quizItem: {
-
-  },
   quizTitle: { 
-    color: colors.white,
+    color: colors.black1,
     textAlign: 'center',
     fontFamily: 'Roboto',
+    fontWeight: 'bold',
     fontSize: 15,
     right: 20,
   },  
@@ -124,29 +114,27 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: colors.white2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: -55,
+    backgroundColor: '#EDECEC',
+    top: -20,
     width:'100%',
-    height:'100%',
-    
+    height:'500%', 
+    marginBottom: 50,   
   },
   quizTopicsText: {
     fontFamily: 'Roboto',
     fontSize: 24,
     fontWeight: 'bold',
-    color: colors.white2,
+    color: colors.black1,
     top: 10, 
     left: 20,
 
   },
   wrapperDetails: {
-    backgroundColor: colors.primary,
-    width: 276,
+    backgroundColor: colors.white2,
+    width: 310,
     height: 100,
-    alignSelf: 'center',
-    top: 28,
+    top: 70,
+    left: 20,
     borderRadius: 20,    
     marginBottom: 18,
   },

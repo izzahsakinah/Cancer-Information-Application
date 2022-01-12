@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   Image,
+  StatusBar,
 } from 'react-native';
 import profile from '../assets/images/Profile-interface.png';
 import colors from '../assets/colors/colors';
@@ -23,7 +24,8 @@ class Profile extends Component {
 
   render(){
     return (
-      <View>     
+      <View>
+        <StatusBar barStyle="light-content" backgroundColor= '#0b2c54' />
       <Text style={styles.textProfile}>Profile</Text>
         <View style={styles.container}>
           <SafeAreaView>

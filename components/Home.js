@@ -7,8 +7,7 @@ import {
   Dimensions,
   ScrollView,
   Image,
-  ImageBackground,
-  Platforms,
+  StatusBar,
 } from 'react-native';
 import colors from '../assets/colors/colors';
 import Feather from 'react-native-vector-icons/Feather';
@@ -27,14 +26,15 @@ const height = Dimensions.get('window').height;
 
 const Home = navigation => {
   return (
+    <ScrollView>
+        <StatusBar barStyle="light-content" backgroundColor= '#0b2c54' />
     <View style={styles.container}>
       {/*Header*/}
       <SafeAreaView>
         <View style={styles.menuWrapper}>
-          <Text style={styles.discoverTitle}> MyNanoria </Text>
           <View style={styles.homeWrapper}>
             {/*<Feather name="menu" size={32} color={colors.gray} style={styles.menuIcon} />*/}
-            <Text style={styles.homeTitle}>Welcome</Text>
+            <Text style={styles.homeTitle}>Hi,</Text>
             <Image source={profile} style={styles.profileImage} />
           </View>
         </View>
@@ -48,18 +48,16 @@ const Home = navigation => {
         </View>
       </View>
 
-      <ScrollView horizontal showsVerticalScrollIndicator={false}>
         <View style={styles.itemsWrapper}>
           <TouchableOpacity onPress={() => navigation.navigate('Details')}>
             <View
               style={[
                 styles.discoverItem,
                 {
-                  marginLeft: 20,
-                  width: 144,
-                  height: 190,
+                  width: 328,
+                  height: 80,
                   borderRadius: 20,
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.white2,
                 },
               ]}>
               <View style={styles.discoverItemDetailsWrapper}>
@@ -78,10 +76,10 @@ const Home = navigation => {
               style={[
                 styles.discoverItem,
                 {
-                  width: 144,
-                  height: 190,
+                  width: 328,
+                  height: 80,
                   borderRadius: 20,
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.white2,
                 },
               ]}>
               <View style={styles.discoverItemDetailsWrapper}>
@@ -103,10 +101,10 @@ const Home = navigation => {
               style={[
                 styles.discoverItem,
                 {
-                  width: 144,
-                  height: 190,
+                  width: 328,
+                  height: 80,
                   borderRadius: 20,
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.white2,
                 },
               ]}>
               <View style={styles.discoverItemDetailsWrapper}>
@@ -127,8 +125,8 @@ const Home = navigation => {
             </View>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-    </View>
+    </View>    
+    </ScrollView>
   );
 };
 
@@ -167,17 +165,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     color: colors.black,
-    backgroundColor: colors.white,
+    backgroundColor: '#EDECEC',
     height: height,
     justifyContent: 'center',
     alignItems: 'center',
   },
   menuWrapper: {
-    backgroundColor: colors.primary,
+    backgroundColor:'#0b2c54',
     width: 360,
     height: 190,
-    borderRadius: 20,
-    top: -20,
+    top: -80,
   },
   homeWrapper: {
     top: 25,
@@ -216,18 +213,15 @@ const styles = StyleSheet.create({
     left: 20,
     top: 20,
   },
-  discoverWrapper: {
-    //marginHorizontal: 20,
-    marginTop: 20,
-  },
+
   discoverTitle: {
     fontFamily: 'Roboto',
     fontSize: 15,
     fontWeight: 'bold',
     //marginRight: 80,
     color: colors.white,
-    top: 30,
-    left: 15,
+    top: 10,
+    left: 5,
   },
   discoverCategoriesWrapper: {
     marginHorizontal: 120,
@@ -252,12 +246,8 @@ const styles = StyleSheet.create({
     paddingVertical: 70,
   },
   discoverItem: {
-    width: 174,
-    height: 195,
-    paddingHorizontal: 15,
     paddingVertical: 70,
-    marginRight: 20,
-    marginBottom: 15,
+    marginBottom: 25,
   },
   discoverItemImage: {
     width: 134,
@@ -306,10 +296,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: colors.black,
     marginLeft: 20,
-  },
-  itemsWrapper: {
-    flexDirection: 'row',
-    top: 10,
   },
 });
 

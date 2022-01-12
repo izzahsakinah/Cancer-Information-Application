@@ -77,17 +77,17 @@ const QuizIntro = () => {
               //alignItems: 'flex-end'
               top: -16,
           }}>
-             <Text style={{color: colors.white2, 
+             <Text style={{color: colors.black, 
                           fontSize: 20, 
                           opacity: 0.6, 
                           marginRight: 2}}>
                 {currentQuestionIndex+1}
                 </Text>
-                    <Text style={{color: colors.white2, fontSize: 20, opacity: 0.6}}>/ {allQuestions.length}</Text>
+                    <Text style={{color: colors.black, fontSize: 20, opacity: 0.6}}>/ {allQuestions.length}</Text>
                 </View>
                  {/* Question */}
                  <Text style={{
-                    color: colors.white2,
+                    color: colors.black,
                     fontSize: 20,
                     top: 0,
                 }}>{allQuestions[currentQuestionIndex]?.question}</Text>
@@ -110,12 +110,12 @@ const QuizIntro = () => {
                         ? colors.success
                         : option==currentOptionSelected 
                         ? colors.error 
-                        : colors.secondary+'40',
+                        : colors.black+'40',
                         backgroundColor: option==correctOption 
                         ? colors.success +'20'
                         : option==currentOptionSelected 
                         ? colors.error +'20'
-                        : colors.secondary+'20',
+                        : colors.black+'20',
                         height: 60, 
                         borderRadius: 20,
                         flexDirection: 'row',
@@ -123,10 +123,12 @@ const QuizIntro = () => {
                         Top: -10,
                         justifyContent: 'space-between',
                         paddingHorizontal: 20,
-                        marginVertical: 10
+                        marginVertical: 10,
+                        backgroundColor: 'white',
+                        borderColor : 'white',
                     }}
                     >
-                    <Text style={{fontSize: 20, color: colors.white2}}>{option}</Text>
+                    <Text style={{fontSize: 20, color: colors.black}}>{option}</Text>
 
                     {/* Show Check Or Cross Icon based on correct answer*/}
                     {
@@ -175,7 +177,7 @@ const QuizIntro = () => {
               style={{
                   marginTop: 20, 
                   width: '100%', 
-                  backgroundColor: colors.secondary, 
+                  backgroundColor: '#0b2c54', 
                   padding: 20, 
                   borderRadius: 5
               }}>
@@ -198,7 +200,7 @@ const QuizIntro = () => {
               width: '90%',
               height: 20,
               borderRadius: 20,
-              backgroundColor: '#00000020',
+              backgroundColor: '#0b2c54',
               top: -10,
 
           }}>
@@ -217,12 +219,12 @@ const QuizIntro = () => {
 return (
 <ScrollView>
     <SafeAreaView >
-        <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+        <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54' />
       
         <View style={{
             paddingVertical: 40,
             paddingHorizontal: 16,
-            backgroundColor: colors.background,
+            backgroundColor: '#EDECEC',
             position:'relative', 
             height: 600,
             width: '100%',
@@ -259,7 +261,7 @@ return (
                            padding: 20,
                            alignItems: 'center'
                        }}>
-                          <Text style={{fontSize: 30, fontWeight: 'bold'}}>
+                          <Text style={{fontSize: 30, fontWeight: 'bold', color: 'white'}}>
                               { score> (allQuestions.length/2) ? 'Congratulations!' : 'Try again another time' }
                               </Text>
 
@@ -288,7 +290,7 @@ return (
                                borderRadius: 20
                            }}>
                               <Text style={{
-                                   textAlign: 'center', color: colors.white2, fontSize: 20
+                                   textAlign: 'center', color: colors.white, fontSize: 20
                                }}>Back</Text>
                            </TouchableOpacity>
                        </View>
