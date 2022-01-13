@@ -105,7 +105,7 @@ const Home = ({navigation}) => {
               ]}>
               <View style={styles.discoverItemDetailsWrapper}>
                 <Text style={styles.discoverItemDetails}>
-                  Drugs Technology in Cancer
+                  Application : Nanomedicine
                 </Text>
                 <Image
                   style={[
