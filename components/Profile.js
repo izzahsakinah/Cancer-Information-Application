@@ -23,7 +23,9 @@ class Profile extends Component {
         <StatusBar barStyle="light-content" backgroundColor= '#0b2c54' />
         <View style={styles.container}>
           <SafeAreaView>
-           
+          <Text style = {{fontSize: 20, color: colors.black, fontWeight: 'bold', margin: 10, }}>
+              Profile
+            </Text>
         <View style={styles.detailsNameWrapper}>
             <Text style = {styles.details}>
               Name
@@ -77,15 +79,12 @@ class Profile extends Component {
 const styles = StyleSheet.create({
 
   container: { 
-    backgroundColor:'#EDECEC',    
-    width:'100%',
-    height:'100%',    
-    marginBottom: -250,
+    backgroundColor:'#EDECEC',  
   },
   detailsNameWrapper: {
     width: 340,
     height: 40,
-    top: -170,
+    top: 30,
     left: 10,
     marginBottom: 5,
     borderBottomColor: '#E7E7E7',
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
   detailsUsernameWrapper: {
     width: 340,
     height: 40,
-    top: -170,
+    top: 30,
     left: 10,
     marginBottom: 5,
     borderBottomColor: '#E7E7E7',
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
   detailsEmailWrapper: {
     width: 340,
     height: 40,
-    top: -170,
+    top: 30,
     left: 10,
     marginBottom: 5,
     borderBottomColor: '#E7E7E7',
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
   detailsGenderWrapper: {
     width: 340,
     height: 40,
-    top: -170,
+    top: 30,
     left: 10,
     marginBottom: 5,
     borderBottomColor: '#E7E7E7',
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
   detailsLocationWrapper: {
     width: 340,
     height: 40,
-    top: -170,
+    top: 30,
     left: 10,
     marginBottom: 5,
     borderBottomColor: '#E7E7E7',

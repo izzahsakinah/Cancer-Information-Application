@@ -289,7 +289,7 @@ return (
                            onPress= {()=> navigation.navigate("Quiz")}
                            style={{
                                backgroundColor: colors.accent,
-                               padding: 20, 
+                               padding: 15, 
                                width: '100%', 
                                borderRadius: 20
                            }}>

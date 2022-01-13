@@ -12,7 +12,7 @@ const Details = ({navigation}) => {
     
     return (        
         <View style={styles.container}>
-            <ScrollView style={{height: 300}}>
+            <ScrollView>
             <ImageBackground source={image} style={styles.backgroundImage}>            
                 <TouchableOpacity style={styles.backBackgroundImage}
                 onPress={() => navigation.goBack()}>
@@ -29,7 +29,7 @@ const Details = ({navigation}) => {
                     </Text>
                 <Text style={styles.descriptionMeaning}>
                     Cancer is a process happens when a normal cell become mutated and divides rapidly during the process of mitosis (cell division).
-                    This causes the numver of cells increase rapidly that cause accumulation of cell in the form of tumor.
+                    This causes the number of cells increase rapidly that cause accumulation of cell in the form of tumor.
                 </Text>
             </View>
 
@@ -50,8 +50,8 @@ const Details = ({navigation}) => {
                     </Text>
                 <Text style={styles.descriptionSpreading}>
                    Cancer can be spread from one organ to another. When cancer cells grow and invades the blood vessel,
-                   cancer cell can travel all over the body via thr blood vessels. And this cells can deposits at any part of the body and start
-                   to grow, multiply and forms cancer there. This process called as metastasis.
+                   cancer cell can travel all over the body via blood vessels. And this cells can deposits at any part of the 
+                   body and start to grow, multiply and forms cancer there. This process called as metastasis.
                 </Text>
             </View>
 
