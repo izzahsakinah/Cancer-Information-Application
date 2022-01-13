@@ -86,10 +86,7 @@ const Home = navigation => {
                 <Text style={styles.discoverItemDetails}>Nanotechnology</Text>
                 <Image
                   style={[
-                    styles.discoverItemImage,
-                    {
-                      marginTop: -25,
-                    },
+                    styles.discoverItemImage
                   ]}
                   source={imageNano}></Image>
               </View>
@@ -117,7 +114,7 @@ const Home = navigation => {
                     {
                       width: 124,
                       height: 124,
-                      bottom: 10,
+                      marginBottom: 100,
                     },
                   ]}
                   source={imageDrugs}></Image>
@@ -173,8 +170,8 @@ const styles = StyleSheet.create({
   menuWrapper: {
     backgroundColor:'#0b2c54',
     width: 360,
-    height: 190,
-    top: -80,
+    height: 160,
+    top: 15,
   },
   homeWrapper: {
     top: 25,
@@ -183,13 +180,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   profileImage: {
-    width: 134,
-    height: 143,
-    top: 10,
+    width: 114,
+    height: 113,
+    top: 28
   },
   homeTitle: {
     fontFamily: 'Roboto',
     color: colors.white,
+    top: 10,
     fontSize: 30,
     marginRight: 30,
     fontWeight: 'bold',
@@ -213,7 +211,6 @@ const styles = StyleSheet.create({
     left: 20,
     top: 20,
   },
-
   discoverTitle: {
     fontFamily: 'Roboto',
     fontSize: 15,
@@ -247,13 +244,12 @@ const styles = StyleSheet.create({
   },
   discoverItem: {
     paddingVertical: 70,
-    marginBottom: 25,
+    marginBottom: 15,
   },
   discoverItemImage: {
     width: 134,
     height: 134,
-    marginTop: -48,
-    alignSelf: 'center',
+    marginTop: -58,
   },
   discoverItemTitle: {
     fontFamily: 'sans-serif-medium',
@@ -297,6 +293,12 @@ const styles = StyleSheet.create({
     color: colors.black,
     marginLeft: 20,
   },
+  discoverWrapper: {
+    top: 30,
+  },
+  itemsWrapper: {
+    top: 30,
+  }
 });
 
 export default Home;

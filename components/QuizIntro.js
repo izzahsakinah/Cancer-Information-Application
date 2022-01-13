@@ -7,7 +7,7 @@ import colors from '../assets/colors/colors';
 
 MaterialCommunityIcons.loadFont();
 
-const QuizIntro = () => {
+const QuizIntro = ({navigation}) => {
 
     const allQuestions = data;
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -178,7 +178,7 @@ const QuizIntro = () => {
                   marginTop: 20, 
                   width: '100%', 
                   backgroundColor: '#0b2c54', 
-                  padding: 20, 
+                  padding: 15, 
                   borderRadius: 5
               }}>
                   <Text style={{fontSize: 20, color: colors.white2, textAlign: 'center'}}>Next</Text>
@@ -201,7 +201,7 @@ const QuizIntro = () => {
               height: 20,
               borderRadius: 20,
               backgroundColor: '#0b2c54',
-              top: -10,
+              top: -20,
 
           }}>
               <Animated.View style={[{
@@ -220,8 +220,11 @@ return (
 <ScrollView>
     <SafeAreaView >
         <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54' />
-      
-        <View style={{
+        <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
+        <Entypo name='close' color={colors.grey} size={28} style = {[{left:10, top: 5, backgroundColor: '#EDECEC'}]} />
+        </TouchableOpacity> 
+    
+            <View style={{
             paddingVertical: 40,
             paddingHorizontal: 16,
             backgroundColor: '#EDECEC',
@@ -229,7 +232,7 @@ return (
             height: 600,
             width: '100%',
         }}>
-       
+                   
            {/* ProgressBar */}
            { renderProgressBar() }
       
@@ -241,6 +244,7 @@ return (
 
           {/* Next Button */}
           {renderNextButton()}
+          
 
           {/* Score Modal */}
         <Modal
@@ -261,7 +265,7 @@ return (
                            padding: 20,
                            alignItems: 'center'
                        }}>
-                          <Text style={{fontSize: 30, fontWeight: 'bold', color: 'white'}}>
+                          <Text style={{fontSize: 30, fontWeight: 'bold', color: 'grey'}}>
                               { score> (allQuestions.length/2) ? 'Congratulations!' : 'Try again another time' }
                               </Text>
 
@@ -296,9 +300,7 @@ return (
                        </View>
                    </View>
                </Modal>
-                <View> 
-                <Entypo name='close' color={colors.white} size={18}  />
-                </View>
+               
                 {/* Background Image */}
                 {/*<Image
                 source={require('../assets/images/Online-test.png')}
@@ -320,6 +322,7 @@ return (
        </ScrollView>
     )
 }
+
 
 export default QuizIntro;
 

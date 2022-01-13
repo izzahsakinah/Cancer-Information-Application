@@ -3,15 +3,10 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   StatusBar,
 } from 'react-native';
-import profile from '../assets/images/Profile-interface.png';
 import colors from '../assets/colors/colors';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import profileData from '../assets/data/profileData';
-import { FlatList } from 'react-native-gesture-handler';
-import location from '../assets/images/location.png';
 
 
 class Profile extends Component {
@@ -26,22 +21,39 @@ class Profile extends Component {
     return (
       <View>
         <StatusBar barStyle="light-content" backgroundColor= '#0b2c54' />
-      <Text style={styles.textProfile}>Profile</Text>
         <View style={styles.container}>
           <SafeAreaView>
-            <View>
-              <Image source={profile} style={styles.profileImage} />  
-            </View>  
+           
         <View style={styles.detailsNameWrapper}>
-            <Text style = {styles.detailsName}>
+            <Text style = {styles.details}>
+              Name
+            </Text>
+            </View>
+      
+        <View style={styles.detailsUsernameWrapper}>
+            <Text style = {styles.details}>
+              Username
             </Text>
             </View>
 
-          <View style={styles.detailsCountryWrapper}>
-          <Image style={styles.locationImage} source={location} />
-            <Text style = {styles.detailsCountry}>
+        <View style={styles.detailsEmailWrapper}>
+            <Text style = {styles.details}>
+              Email
             </Text>
-            </View>            
+            </View>
+
+        <View style={styles.detailsGenderWrapper}>
+            <Text style = {styles.details}>
+              Gender
+            </Text>
+            </View>
+
+        <View style={styles.detailsLocationWrapper}>
+            <Text style = {styles.details}>
+              Location
+            </Text>
+            </View>
+
           </SafeAreaView>
         </View>
         </View> 
@@ -64,71 +76,63 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
 
-  container: {     
-    backgroundColor:'#013A63',
-    height:350,
-    alignItems:'center', 
-    borderRadius: 25,
-    justifyContent: 'flex-end',
-    bottom: -210,
-    alignItems: 'center',   
-    //marginBottom: 10,
-  },
-  menuWrapper: {
-    alignItems: 'center',
-  },
-  profileImage: {
-    width: 240,
-    height: 240,
-    margin: -525,
-    position: 'absolute',    
-    alignSelf: 'center',
-    //alignItems: 'center',
-    //shadowColor: '#000',
-    //shadowOffset: {
-      //width: 0,
-      //height: 2,
-    //},
-    //shadowOpacity: 0.25,
-    //shadowRadius: 3.84,
-  },
-  detailsName: {
-    fontFamily: 'sans-serif-medium',
-    fontSize: 16,
-    color: colors.white,
-    paddingLeft: 5,
-    textAlign: 'center',
-
+  container: { 
+    backgroundColor:'#EDECEC',    
+    width:'100%',
+    height:'100%',    
+    marginBottom: -250,
   },
   detailsNameWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: -480,  
+    width: 340,
+    height: 40,
+    top: -170,
+    left: 10,
+    marginBottom: 5,
+    borderBottomColor: '#E7E7E7',
+    borderBottomWidth: 3,
   },
-  
-  detailsCountry: {
+  detailsUsernameWrapper: {
+    width: 340,
+    height: 40,
+    top: -170,
+    left: 10,
+    marginBottom: 5,
+    borderBottomColor: '#E7E7E7',
+    borderBottomWidth: 3,
+  },
+  detailsEmailWrapper: {
+    width: 340,
+    height: 40,
+    top: -170,
+    left: 10,
+    marginBottom: 5,
+    borderBottomColor: '#E7E7E7',
+    borderBottomWidth: 3,
+  },
+  detailsGenderWrapper: {
+    width: 340,
+    height: 40,
+    top: -170,
+    left: 10,
+    marginBottom: 5,
+    borderBottomColor: '#E7E7E7',
+    borderBottomWidth: 3,
+  },
+  detailsLocationWrapper: {
+    width: 340,
+    height: 40,
+    top: -170,
+    left: 10,
+    marginBottom: 5,
+    borderBottomColor: '#E7E7E7',
+    borderBottomWidth: 3,
+  },  
+  details: {
     fontFamily: 'sans-serif-medium',
     fontSize: 16,
-    color: colors.white,
-    paddingLeft: 5,
-  },
-  detailsCountryWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    top: 20,
-  },
-  textProfile:{
-    fontSize: 28,
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
     color: colors.black,
-    textAlign: 'center',
-    top: 20,
+    paddingLeft: 10,
   },
-  locationImage: {
-    width: 20,
-    height: 20,
-  }
 });
 
 export default Profile;
