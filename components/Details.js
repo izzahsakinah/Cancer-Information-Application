@@ -7,27 +7,25 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 Entypo.loadFont();
 
-const height = Dimensions.get('window').height;
 
 const Details = ({navigation}) => {
     
-    return (
-        
+    return (        
         <View style={styles.container}>
-            
-            <ImageBackground source={image} style={styles.backgroundImage}>
-            <ScrollView>
+            <ScrollView style={{height: 300}}>
+            <ImageBackground source={image} style={styles.backgroundImage}>            
                 <TouchableOpacity style={styles.backBackgroundImage}
                 onPress={() => navigation.goBack()}>
                     <Entypo name="chevron-left" size={28} color={colors.white} />
                 </TouchableOpacity>
-            
+           
             <Text style={styles.descriptionTitle}>Get To Know About Cancer</Text>
-            
+             </ImageBackground>
+
             {/*Definition*/}
             <View style={styles.descriptionWrapper}>
             <Text style={styles.descriptionTitleMeaning}>
-                    What is Cancer?
+                    What is Cancer
                     </Text>
                 <Text style={styles.descriptionMeaning}>
                     Cancer is a process happens when a normal cell become mutated and divides rapidly during the process of mitosis (cell division).
@@ -38,7 +36,7 @@ const Details = ({navigation}) => {
             {/*Types*/}
             <View style={styles.descriptionSecondWrapper}>
                 <Text style={styles.descriptionTitleTypes}>
-                    Types of Cancer:
+                    Types of Cancer
                     </Text>
                 <Text style={styles.descriptionTypes}>
                     Carcinoma, Sarcoma, Leukaemia, Lymphoma, Multiple Myeloma, Melanoma, Brain and Spiral Cord Tumors etc.
@@ -48,7 +46,7 @@ const Details = ({navigation}) => {
             {/*Spreading*/}
             <View style={styles.descriptionThirdWrapper}>
                 <Text style={styles.descriptionTitleSpreading}>
-                    Spreading of Cancer:
+                    Spreading of Cancer
                     </Text>
                 <Text style={styles.descriptionSpreading}>
                    Cancer can be spread from one organ to another. When cancer cells grow and invades the blood vessel,
@@ -60,15 +58,13 @@ const Details = ({navigation}) => {
             {/*Treatment*/}
             <View style={styles.descriptionForthWrapper}>
                 <Text style={styles.descriptionTitleTreatment}>
-                    Treatments of Cancer:
+                    Treatments of Cancer
                 </Text>
                 <Text style={styles.descriptionTreatment}>
                     Chemotherapy, Radiotherapy, Surgery, Targeted therapy, Immunotherapy, Hormone therapy
                 </Text>
             </View>
-            </ScrollView>
-            </ImageBackground>
-            
+            </ScrollView>            
             </View>
 
            
@@ -79,44 +75,41 @@ const Details = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.black,
+        backgroundColor: '#EDECEC',
     },
     backgroundImage: {
-        height: height,
+        height: 130,
     },
     descriptionTitle: {
         fontFamily: 'sans-serif-medium',
         fontSize: 20,
-        color: colors.white,
+        color: colors.white2,
         textAlign: 'center',
-
     },
     descriptionWrapper:{
-       backgroundColor: colors.orange,
-       width: 250,
-       height: 230,
+       backgroundColor: colors.white2,
+       width: '90%',
+       height: '20%',
        borderRadius: 20,
        paddingVertical: 20,
-       marginLeft: 50,
+       alignSelf: 'center',
        marginTop: 20,
-
     },
     backBackgroundImage: {
         color: colors.white,
         fontSize: 10,
         marginLeft: 20,
         marginTop: 20,
-
     },
     descriptionTitleMeaning:{
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'Roboto',
         fontSize: 17,
         textAlign: 'center',
-        textDecorationLine: 'underline'
+        //textDecorationLine: 'underline'
     },
     descriptionMeaning:{
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'Roboto',
         fontSize: 17,        
         marginTop: 15,
@@ -124,51 +117,50 @@ const styles = StyleSheet.create({
 
     },
     descriptionSecondWrapper: {
-        backgroundColor: colors.orange,
-        width: 250,
-        height: 230,
+        backgroundColor: colors.white2,        
+        width: '90%',
+        height: '20%',
         borderRadius: 20,
         marginTop: 20,
         paddingVertical: 15,
-        marginLeft: 50, 
+        alignSelf: 'center',
         
      },
     descriptionTitleTypes:{
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'Roboto',
         fontSize: 17,
         marginTop: 15,
         textAlign: 'center',
-        textDecorationLine: 'underline'
+        //textDecorationLine: 'underline'
 
      },
     descriptionTypes: {
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'Roboto',
         fontSize: 17,
         marginTop: 30,
         textAlign: 'center',
     },
     descriptionThirdWrapper: {
-        backgroundColor: colors.orange,
-        width: 250,
-        height: 290,
+        backgroundColor: colors.white2,        
+        width: '90%',
+        height: '25%',
         borderRadius: 20,
         marginTop: 20,
         paddingVertical: 15,
-        marginLeft: 50,
-
+        alignSelf: 'center',
     },
     descriptionTitleSpreading:{
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 5,
         textAlign: 'center',
-        textDecorationLine: 'underline'
+        //textDecorationLine: 'underline'
     },
     descriptionSpreading: {
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 30,
@@ -176,26 +168,25 @@ const styles = StyleSheet.create({
 
     },
     descriptionForthWrapper: {
-        backgroundColor: colors.orange,
-        width: 250,
-        height: 230,
+        backgroundColor: colors.white2,        
+        width: '90%',
+        height: '20%',   
         borderRadius: 20,
         marginTop: 20,
         paddingVertical: 15,
-        marginLeft: 50,
-        marginBottom: 50,
+        alignSelf: 'center', 
     },
     descriptionTitleTreatment: {
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 15,
         textAlign: 'center',
-        textDecorationLine: 'underline'
+        //textDecorationLine: 'underline'
 
     },
     descriptionTreatment: {
-        color: colors.white,
+        color: colors.black,
         fontFamily: 'notoserif',
         fontSize: 17,
         marginTop: 30,

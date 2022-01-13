@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import image from '../assets/images/Breast-cancer.png';
+import colors from '../assets/colors/colors';
+
 
 
 const DetailsNano = () => {
@@ -9,7 +11,7 @@ return (
       <ScrollView>
       <Image source={image} style = {[{width: 100, height: 60, alignItems: 'center',}]}></Image>
         <View style = {styles.meaningWrapper}>
-        <Text style = {[{fontSize: 20, color:black}]}>
+        <Text style = {[{fontSize: 20, color: colors.black}]}>
         {`The prefix "nano" comes from Greek meaning "dwarf" describing very small size. 
         \n
         Technology refers to methods, systems, and devices which are the result of scientific knowledge being used for practical purposes.
@@ -25,12 +27,12 @@ return (
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     backgroundColor: '#EDECEC',
-  }
+  },
   meaningWrapper: {
-    backgroundColor: color.white2,
+    backgroundColor: colors.white2,
     borderRadius: 10,
   }
 })

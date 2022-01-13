@@ -22,9 +22,9 @@ import imageDrugs from '../assets/images/Breast-research.png';
 Feather.loadFont();
 Entypo.loadFont();
 
-const height = Dimensions.get('window').height;
+//const height = Dimensions.get('window').height;
 
-const Home = navigation => {
+const Home = ({navigation}) => {
   return (
     <ScrollView>
         <StatusBar barStyle="light-content" backgroundColor= '#0b2c54' />
@@ -38,7 +38,6 @@ const Home = navigation => {
             <Image source={profile} style={styles.profileImage} />
           </View>
         </View>
-      </SafeAreaView>
 
       {/*Discover*/}
       <View style={styles.discoverWrapper}>
@@ -121,8 +120,9 @@ const Home = navigation => {
               </View>
             </View>
           </TouchableOpacity>
-        </View>
-    </View>    
+        </View>        
+      </SafeAreaView>
+    </View>
     </ScrollView>
   );
 };
@@ -163,7 +163,6 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.black,
     backgroundColor: '#EDECEC',
-    height: height,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#0b2c54',
     width: 360,
     height: 160,
-    top: 15,
+    top: -35,
   },
   homeWrapper: {
     top: 25,
@@ -239,12 +238,10 @@ const styles = StyleSheet.create({
     left: 20,
     color: colors.black,
   },
-  discoverItemsWrapper: {
-    paddingVertical: 70,
-  },
   discoverItem: {
     paddingVertical: 70,
     marginBottom: 15,
+    left: 10,
   },
   discoverItemImage: {
     width: 134,
@@ -254,51 +251,20 @@ const styles = StyleSheet.create({
   discoverItemTitle: {
     fontFamily: 'sans-serif-medium',
     fontSize: 18,
-    color: colors.white,
+    color: colors.black,
     left: 20,
   },
   discoverItemDetails: {
     fontFamily: 'Roboto',
     fontSize: 15,
-    color: colors.white2,
+    color: colors.black,
     top: -60,
     textAlign: 'center',
   },
-  activitiesWrapper: {
-    marginTop: 10,
-  },
-  activitiesTitle: {
-    marginHorizontal: 20,
-    fontFamily: 'sans-serif-medium',
-    fontSize: 15,
-    color: colors.black,
-  },
-  activitiesItemsWrapper: {
-    paddingVertical: 20,
-  },
-  activitiesItemWrapper: {
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginRight: 20,
-  },
-  activitiesItemImage: {
-    width: 50,
-    height: 49,
-    marginLeft: 20,
-  },
-  activitiesItemText: {
-    marginTop: 5,
-    fontFamily: 'sans-serif-light',
-    fontSize: 10,
-    color: colors.black,
-    marginLeft: 20,
-  },
-  discoverWrapper: {
-    top: 30,
-  },
   itemsWrapper: {
-    top: 30,
-  }
+    top: 10,
+    left : 5,
+  },
 });
 
 export default Home;
