@@ -8,12 +8,13 @@ import Note from './components/Note';
 //import Login from './components/Login';
 import Details from './components/Details';
 import DetailsNano from './components/DetailsNano';
-import DetailsDrugs from './components/DetailsDrugs';
+import Nanoparticles from './components/Nanoparticles';
+import DetailsMed from './components/DetailsMed';
 import Profile from './components/Profile';
 import Quiz from './components/Quiz';
 import QuizIntro from './components/QuizIntro';
 import QuizNano from './components/QuizNano';
-import QuizDrugs from './components/QuizDrugs';
+import QuizMed from './components/QuizMed';
 import colors from './assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
@@ -151,7 +152,8 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{title: 'My home'}}
+          options={{headerShown: false}}
+          //options={{title: 'My home'}}
         />
         <Stack.Screen
           name="Details"
@@ -164,8 +166,13 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="DetailsDrugs"
-          component={DetailsDrugs}
+          name="Nanoparticles"
+          component={Nanoparticles}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DetailsMed"
+          component={DetailsMed}
           options={{headerShown: false}}
         />
         <Stack.Screen
@@ -179,8 +186,8 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="QuizDrugs"
-          component={QuizDrugs}
+          name="QuizMed"
+          component={QuizMed}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

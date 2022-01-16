@@ -92,7 +92,7 @@ const Home = ({navigation}) => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.navigate('DetailsDrugs')}>
+          <TouchableOpacity onPress={() => navigation.navigate('DetailsMed')}>
             <View
               style={[
                 styles.discoverItem,

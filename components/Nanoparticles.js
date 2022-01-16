@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, StyleSheet, ScrollView } from 'react-native';
 import image from '../assets/images/Breast-cancer.png';
 import colors from '../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -14,7 +14,7 @@ return (
       <ImageBackground source={image} style = {[{width: 200, height: 160, alignItems: 'center',}]}>
               <TouchableOpacity style={{left: 10,}}
                   onPress={() => navigation.navigate('Home')}>
-                    <Entypo name="chevron-left" size={28} color={colors.gray} />
+                    <Entypo name="chevron-left" size={28} color={colors.black} />
                 </TouchableOpacity>
                 <Text>Nanoparticles Properties</Text>
       </ImageBackground>

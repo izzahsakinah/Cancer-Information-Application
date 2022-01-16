@@ -12,7 +12,7 @@ const Details = ({navigation}) => {
     
     return (        
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView style={styles.scrollView} contentContainerStyle={{justifyContent: 'center', paddingBottom : 50, alignItems: 'center',}}>
             <ImageBackground source={image} style={styles.backgroundImage}>            
                 <TouchableOpacity style={styles.backBackgroundImage}
                 onPress={() => navigation.goBack()}>
@@ -64,11 +64,8 @@ const Details = ({navigation}) => {
                     Chemotherapy, Radiotherapy, Surgery, Targeted therapy, Immunotherapy, Hormone therapy
                 </Text>
             </View>
-            </ScrollView>            
+            </ScrollView>  
             </View>
-
-           
-
         );
 };
 
@@ -76,6 +73,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#EDECEC',
+    },
+    scrollView: {
+        margin: 20,
     },
     backgroundImage: {
         height: 130,

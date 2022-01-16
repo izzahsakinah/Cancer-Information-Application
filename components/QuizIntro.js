@@ -1,6 +1,6 @@
 import React, { useState, Component } from 'react'
-import { View, Text, ScrollView, SafeAreaView, StatusBar, TouchableOpacity, Modal, Animated, Dimensions } from 'react-native'
-import data from '../assets/data/nanoData';
+import { View, Text, ScrollView, SafeAreaView, StatusBar, TouchableOpacity, Modal, Animated } from 'react-native'
+import data from '../assets/data/introData';
 import Entypo from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/colors';
