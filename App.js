@@ -149,7 +149,7 @@ const App = () => {
           component={TabNavigator}
           options={{headerShown: false}}
         />
-        <Stack.Screen
+      <Stack.Screen
           name="Home"
           component={Home}
           options={{headerShown: false}}
@@ -174,8 +174,8 @@ const App = () => {
           name="DetailsMed"
           component={DetailsMed}
           options={{headerShown: false}}
-        />
-        <Stack.Screen
+       />
+         {/*<Stack.Screen
           name="QuizIntro"
           component={QuizIntro}
           options={{headerShown: false}}
@@ -189,7 +189,7 @@ const App = () => {
           name="QuizMed"
           component={QuizMed}
           options={{headerShown: false}}
-        />
+        />*/}
       </Stack.Navigator>
     </NavigationContainer>
   );

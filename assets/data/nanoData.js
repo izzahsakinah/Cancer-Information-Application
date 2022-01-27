@@ -18,6 +18,5 @@ export default nanoData = [
         question: "Extermely small size of the particles enables it to penetrate the skin layer, blood circulation, lymphatic system",
         options: ["Correct","Wrong"],
         correct_option: "Correct"
-    },
-    
+    },    
 ]

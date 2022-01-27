@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react'
-import { View, Text, ScrollView, SafeAreaView, StatusBar, TouchableOpacity, Modal, Animated } from 'react-native'
+import { View, Text, ScrollView, SafeAreaView, StatusBar, ImageBackground, TouchableOpacity, Modal, Animated } from 'react-native'
 import data from '../assets/data/introData';
 import Entypo from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -105,58 +105,66 @@ const QuizIntro = ({navigation}) => {
                       disabled={isOptionsDisabled}
                       key={option}
                       style={{
-                        borderWidth: 3, 
+                        borderWidth: 1, 
                         borderColor: option==correctOption 
                         ? colors.success
                         : option==currentOptionSelected 
-                        ? colors.error 
+                        ? colors.success 
                         : colors.black+'40',
-                        backgroundColor: option==correctOption 
+                        borderColor: option==correctOption 
                         ? colors.success +'20'
                         : option==currentOptionSelected 
                         ? colors.error +'20'
                         : colors.black+'20',
-                        height: 60, 
-                        borderRadius: 20,
-                        flexDirection: 'row',
-                        alignItems: 'center', 
-                        Top: -10,
-                        justifyContent: 'space-between',
-                        paddingHorizontal: 20,
+                        borderRadius: 15,
+                        paddingHorizontal: 10,
                         marginVertical: 10,
-                        backgroundColor: 'white',
-                        borderColor : 'white',
+                        justifyContent: 'space-between', 
+                        alignItems: 'center', 
+                        backgroundColor: colors.white,
+                        borderColor : '#0b2c54',
+                        flexDirection:'row',
+                        height: 80, 
                     }}
                     >
-                    <Text style={{fontSize: 20, color: colors.black}}>{option}</Text>
+                    <Text style={{fontSize: 16, color: colors.black, }}>{option}</Text>
 
                     {/* Show Check Or Cross Icon based on correct answer*/}
                     {
                         option==correctOption ? (
                             <View style={{
-                                width: 20, 
-                                height: 20, 
+                                backgroundColor: colors.white2,
+                                borderWidth: 2,
+                                borderColor: colors.success,
+                                width: 30, 
+                                height: 30, 
                                 borderRadius: 30/2,
-                                backgroundColor: colors.success,
-                                justifyContent: 'center', 
-                                alignItems: 'center'
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                top: -35,
+                                right: 20,
                             }}>
                               <MaterialCommunityIcons name="check" style={{
-                                            color: colors.white2,
-                                            fontSize: 20
+                                            color: colors.success,
+                                            fontSize: 25,
                                         }} />
                            </View>
-                                ): option == currentOptionSelected ? (
+                                )
+                                : option == currentOptionSelected ? (
                                     <View style={{
+                                        backgroundColor: colors.white,
+                                        borderWidth: 2,
+                                        borderColor: colors.error,
                                         width: 30, 
                                         height: 30, 
                                         borderRadius: 30/2,
-                                        backgroundColor: colors.error,
-                                        justifyContent: 'center', 
-                                        alignItems: 'center'
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        top: -35,
+                                        right: 20,
                                     }}>
                                       <MaterialCommunityIcons name="close" style={{
-                                            color: colors.white2,
+                                            color: colors.error,
                                             fontSize: 20
                                         }} />
                                     </View>
@@ -176,12 +184,13 @@ const QuizIntro = ({navigation}) => {
               onPress={handleNext}
               style={{
                   marginTop: 20, 
-                  width: '100%', 
+                  width: '20%', 
                   backgroundColor: '#0b2c54', 
-                  padding: 15, 
-                  borderRadius: 5
+                  padding: 10, 
+                  left: 260,
+                  borderRadius: 25,
               }}>
-                  <Text style={{fontSize: 20, color: colors.white2, textAlign: 'center'}}>Next</Text>
+                  <Text style={{fontSize: 15, color: colors.white2, textAlign: 'center'}}>Next</Text>
               </TouchableOpacity>
           )
       }else{
@@ -197,9 +206,10 @@ const QuizIntro = ({navigation}) => {
       return (
         
           <View style={{
-              width: '90%',
+              width: '100%',
               height: 20,
               borderRadius: 20,
+              alignSelf: 'center',
               backgroundColor: '#0b2c54',
               top: -20,
 
@@ -226,10 +236,10 @@ return (
     
             <View style={{
             paddingVertical: 40,
-            paddingHorizontal: 16,
+            paddingHorizontal: 15,
             backgroundColor: '#EDECEC',
             position:'relative', 
-            height: 600,
+            height: 700,
             width: '100%',
         }}>
                    

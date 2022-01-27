@@ -13,6 +13,7 @@ import colors from '../assets/colors/colors';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 //import { FlatList } from 'react-native-gesture-handler';
 import profile from '../assets/images/Breast-cancer.png';
 import imageDetails from '../assets/images/Self-confidence.png';
@@ -48,6 +49,22 @@ const Home = ({navigation}) => {
       </View>
 
         <View style={styles.itemsWrapper}>
+        <LinearGradient 
+      colors={['red', 'yellow']} 
+      start={{
+        x: 0,
+        y: 0
+      }}
+      end={{
+        x: 1,
+        y: 1
+      }} />
+
+      <LinearGradient
+        colors={['#c0392b', '#f1c40f', '#8e44ad']}
+        start={{x: 0, y: 0.5}}
+        end={{x: 1, y: 1}}
+      >
           <TouchableOpacity onPress={() => navigation.navigate('Details')}>
             <View
               style={[
@@ -57,6 +74,8 @@ const Home = ({navigation}) => {
                   height: 80,
                   borderRadius: 20,
                   backgroundColor: colors.white2,
+                  background:linear-gradient(rgba(250,0,0,0.5),transparent),
+                  backgroundColor:colors.darkBlue,
                 },
               ]}>
               <View style={styles.discoverItemDetailsWrapper}>
@@ -79,9 +98,12 @@ const Home = ({navigation}) => {
                   height: 80,
                   borderRadius: 20,
                   backgroundColor: colors.white2,
+                  justifyContent: 'space-between', 
+                  flexDirection:'row',
                 },
               ]}>
-              <View style={styles.discoverItemDetailsWrapper}>
+              <View style={[styles.discoverItemDetailsWrapper, 
+                {}]}>
                 <Text style={styles.discoverItemDetails}>Nanotechnology</Text>
                 <Image
                   style={[
@@ -105,7 +127,7 @@ const Home = ({navigation}) => {
               ]}>
               <View style={styles.discoverItemDetailsWrapper}>
                 <Text style={styles.discoverItemDetails}>
-                  Application : Nanomedicine
+                  Application : {'\n'}Nanomedicine
                 </Text>
                 <Image
                   style={[
@@ -120,7 +142,8 @@ const Home = ({navigation}) => {
               </View>
             </View>
           </TouchableOpacity>
-        </View>        
+          </LinearGradient>
+        </View>
       </SafeAreaView>
     </View>
     </ScrollView>
@@ -258,8 +281,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     fontSize: 15,
     color: colors.black,
-    top: -60,
-    textAlign: 'center',
+    top: -10,
+    left: 160,    
+    position: 'absolute',
   },
   itemsWrapper: {
     top: 10,

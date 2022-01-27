@@ -61,7 +61,7 @@ return (
         </View>
         <View style={styles.sevenNanoWrapper}>
         <View style = {styles.meaningWrapper}>
-          <Text style = {{}}>      
+          <Text style = {{}}>
             The technique involves storing a cancer drug inside tiny objects called nanoparticles.        
           </Text>
         </View>
