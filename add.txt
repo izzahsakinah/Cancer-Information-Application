@@ -1,0 +1,274 @@
+ <TouchableOpacity onPress={() => 
+                        navigation.navigate("Home", {
+                            param1: item.image,
+                            title:item.title,
+                        })} >
+
+    style={styles.backBackgroundImage} 
+onPress{() => onBackPressed()}>
+<Entyponame="chevron-left" size={32} color={colors.white} />
+
+
+---------------------------------------------------------------------------------
+QUIZ.JS
+---------------------------------------------------------------------------------
+import React from 'react';
+import {View, Text, StyleSheet, Dimensions, ImageBackground, ScrollView} from 'react-native';
+import colors from '../assets/colors/colors';
+import quiz1 from '../assets/images/quiz1.jpg';
+import quiz2 from '../assets/images/quiz2.jpg';
+import quiz3 from '../assets/images/quiz3.png';
+
+
+const height = Dimensions.get('window').height;
+
+const Quiz =({ navigation }) => {
+  return (
+    <View style = {styles.container}>
+      <ScrollView>
+        <View style={styles.Introduction}>
+        <ImageBackground source={quiz1} style={styles.firstImageWrapper}>
+            <Text style={styles.quizText}>Introduction to Cancer</Text>
+        </ImageBackground>
+        </View>
+
+        <View style={styles.Nano}>
+        <ImageBackground source={quiz2} style={styles.secondImageWrapper}>
+            <Text style={styles.quizText}>Application of Nanotechnology</Text>
+        </ImageBackground>
+        </View>
+
+        <View style={styles.NanoDrugs} >
+        <ImageBackground source={quiz3} style={styles.thirdImageWrapper}>
+            <Text style={styles.quizText}>Nano Drugs  Targetting Cancer Therapy</Text>
+        </ImageBackground>
+        </View>
+
+      </ScrollView>
+    </View>
+  );
+};
+
+
+const styles = StyleSheet.create({ 
+
+  container: { 
+    flex: 1, 
+    height: height,
+    backgroundColor:'#ba55d3',
+  },
+  Introduction: { 
+    top: 80, 
+    left: 40,    
+    marginBottom: 20,
+  },
+  firstImageWrapper: {
+    width: 280, 
+    height: 110,         
+    borderRadius: 15,
+    overflow: 'hidden'
+  }, 
+  Nano: {
+    top: 90, 
+    left: 40,    
+    marginBottom: 20,
+  },
+  secondImageWrapper: {
+    width: 280, 
+    height: 110,
+    borderRadius: 15,
+    overflow: 'hidden'
+  },
+  NanoDrugs: {
+    top: 100, 
+    left: 40,
+    marginBottom: 200,
+  },
+  thirdImageWrapper: {    
+    width: 280, 
+    height: 110,
+    borderRadius: 15,
+    overflow: 'hidden'
+  }, 
+  quizText: {
+    fontFamily: 'sans-serif-medium',
+    fontSize: 18,
+    color: colors.black,
+    textAlign: 'center',
+    top: 20
+  },
+
+});
+
+export default Quiz;
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+QUIZ.JS
+
+<View>
+            <Button title="Go Intro" onPress= {()=> navigation.navigate("QuizNano")}></Button>
+            <Button title="Go Drugs" onPress= {()=> navigation.navigate("QuizDrugs")}></Button>
+
+                    <View style={styles.quizTopicsWrapper}>
+                        <Text style={styles.quizTopicsText}> 
+                       Choose Topic
+                        </Text>
+                    </View>
+                    </View>
+         
+      );
+  };
+
+
+  import React from 'react';
+import {View, Text, StyleSheet, Dimensions, ImageBackground, TouchableOpacity} from 'react-native';
+import colors from '../assets/colors/colors';
+import quizesData from '../assets/data/quizesData';
+import { FlatList } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+const height = Dimensions.get('window').height;
+
+const Quiz =({ navigation }) => {
+
+  const renderQuizItem = ({item}) => {
+
+  return (
+        <View>
+          <TouchableOpacity onPress= {()=> navigation.navigate("QuizIntro", {
+                item: item  
+              })
+            }>
+           <ImageBackground source={item.image}
+                    style={[ styles.quizItem , {
+                      marginBottom: item.id === '3' ? 100 : 0
+                  }]} 
+                    imageStyle={styles.quizImage}
+                >
+                    <Text style={styles.quizTitle }>
+                        {item.name }
+                    </Text>
+                    <View style={styles.quizDetailsWrapper}>
+                    <Text style={styles.quizDetails }>
+                        {item.description }
+                    </Text>
+                    </View>
+                </ImageBackground>
+            </TouchableOpacity>
+           </View>
+         );
+};
+
+  return (
+      <View style={styles.container}>
+                    <View style={styles.quizTopicsWrapper}>
+                        <Text style={styles.quizTopicsText}> 
+                       Choose Topic
+                        </Text>
+                    </View>
+                    <View style={styles.quizItemsWrapper}>
+                        <FlatList
+                            data={quizesData}
+                            renderItem={renderQuizItem}
+                            keyExtractor={(item) => item.id}
+                        />
+                    </View>
+          </View>
+      );
+  };
+
+const styles = StyleSheet.create({ 
+
+  quizItem: {
+    width: 250,
+    height: 200,
+    justifyContent: 'flex-end',
+    paddingHorizontal: 30,
+    paddingVertical: 30,
+    marginLeft : 55,
+    top: 50,
+  },
+  quizImage: { 
+    borderRadius: 20,
+    marginBottom: 20,
+
+  },
+  quizTitle: { 
+    //justifyContent: 'flex-end',
+    paddingHorizontal: 1,
+    paddingVertical: 5,
+    color: colors.white,
+    //marginRight : 20,
+  },
+  quizDetailsWrapper:{ 
+    //flexDirection: 'column',
+    marginTop: 5,
+  },
+  quizDetails: {
+    paddingVertical: 10,
+    fontFamily: 'sans-serif-light',
+    fontSize: 12,
+    color: colors.white,
+
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#E8DFDF',
+    height: height,
+    
+  },
+  quizWrapper: {    
+        //marginHorizontal: 20,
+        //marginTop: 20,
+  },
+  quizTopicsWrapper: {
+    marginHorizontal: 80,
+    //flexDirection: 'column',
+
+  },
+  quizTopicsText: {
+    fontFamily: 'sans-serif-medium',
+    fontSize: 18,
+    color: colors.black,
+    top: 20, 
+    textAlign: 'center',
+
+  },
+});
+
+export default Quiz;
+
+======================================================================
+source={require('./project/assest/images/test.svg')} />
+======================================================================
+
+GITHUB PUSH
+git init
+
+git add .
+
+git commit -m " test this app"
+
+git remote add origin https://github.com/username/flutterapp.git
+
+git push or 
+
+git push --set-upstream origin master
+
+=========================================================================
+PUSH EXISTING REPO
+=========================================================================
+git remote add origin https://github.com/queenofcat/Sentiment-Analysis-of-Cyberbullying-Twitter-Detection.git
+git branch -M main
+git push -u origin main
+
+=========================================================================
+CREATE NEW REPO ON CL
+=========================================================================
+echo "# Sentiment-Analysis-of-Cyberbullying-Twitter-Detection" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/queenofcat/Sentiment-Analysis-of-Cyberbullying-Twitter-Detection.git
+git push -u origin main
