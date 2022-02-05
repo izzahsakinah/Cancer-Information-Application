@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, ScrollView, TouchableOpacity, SectionList, StatusBar } from 'react-native';
-import image from '../assets/images/Breast-cancer.png';
+import image from '../assets/images/Stem-cell-rafiki.png';
 import colors from '../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
+import LinearGradient from 'react-native-linear-gradient'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlatList } from 'react-native-gesture-handler';
 import nanoDData from '../assets/data/nanoDData';
@@ -13,25 +14,25 @@ Entypo.loadFont();
 const DetailsNano = ({navigation}) => {
     return (
       <View style={styles.container}>
-        <ScrollView>
       
-      <View style={{top: 10, alignSelf: 'center',}}>
-        <ImageBackground source={image} style = {[{width: 200, height: 160, left:80, }]}>
+      <View style={{top: 1, }}>
+        <ImageBackground source={image} style = {[{width: 200, height: 160, left:158, }]}>
           </ImageBackground>
              <Text style={styles.descriptionTitle}>Nanotechnology</Text>    
-             <View style={{marginVertical: -28, top:20, flexDirection:"row",justifyContent:'space-between',position: 'absolute'}}>
-              <TouchableOpacity style={{left: -75}}
+             <View style={{marginVertical: 5, flexDirection:"row",justifyContent:'space-between',position: 'absolute'}}>
+              <TouchableOpacity style={{left: 1}}
                   onPress={() => navigation.goBack()}>
                     <Entypo name="chevron-left" size={28} color={colors.black} />
                 </TouchableOpacity>
 
-              <TouchableOpacity style={{left: 250, position: 'absolute',}}
+              <TouchableOpacity style={{right: 1}}
                   onPress={() => navigation.navigate('Nanoparticles')}>
                     <Entypo name="chevron-right" size={28} color={colors.black} />
               </TouchableOpacity>
               </View>
           </View>
 
+        <ScrollView showsVerticalScrollIndicator={false} >
           <View style={[{
           flexDirection:'column', 
           margin: 10,
@@ -51,40 +52,38 @@ const DetailsNano = ({navigation}) => {
           </View>
           <View style = {[styles.textWrapper, {
               top: 5,
-              backgroundColor: colors.mediumorchid,  
+              backgroundColor: colors.orange1,  
               }]}>
               <Text style = {[{fontSize: 15, fontFamily: 'Roboto', color: colors.white2}]}>
               Technology refers to methods, systems, and devices which are the result of scientific knowledge being used for practical purposes
               </Text>
           </View>
           <View style = {[styles.textWrapper, {
-              top: 20,
-              backgroundColor: colors.orchid, 
+              top: -10,
+              backgroundColor: colors.orange, 
               }]}>
               <Text style = {[{fontSize: 15, fontFamily: 'Roboto', color: colors.white2}]}>
               Nanotechnology is an application of extremely small particles (nanoparticles) which can be used across many science fields
               </Text>
           </View>
           <View style = {[styles.textWrapper, {
-              top: 20,
-              backgroundColor: colors.orchid, 
+              top: -25,
+              backgroundColor: colors.orange1, 
               }]}>
               <Text style = {[{fontSize: 15, fontFamily: 'Roboto', color: colors.white2}]}>
               Nanotechnology involved creation of materials, systems, and devices that are useful through manipulating nanoparticleswith size ranged between 1 to 100 nanometre
               </Text>
+          </View>         
           </View>
-         
-          </View>
-
         </ScrollView>
-        
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#EDECEC',
+    backgroundColor: colors.white2,
 
   },
   textWrapper: {    
@@ -99,11 +98,10 @@ const styles = StyleSheet.create({
       fontSize: 20,
       color: colors.black,
       fontWeight: 'bold',
-      top:65,
-      right:120,
+      top: 60,
+      margin: 20,
       position: 'absolute'
-  },
- 
-})
-  
+  }, 
+
+})  
 export default DetailsNano;

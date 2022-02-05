@@ -238,6 +238,28 @@ const styles = StyleSheet.create({
 
 export default Quiz;
 
+===============================================================================
+DetailsNano
+===============================================================================
+<View style={{top: 0, alignSelf: 'center', width: '100%'}}>
+  <LinearGradient colors={['#e85d04', '#faa307', '#ffba08']}>
+    <ImageBackground style = {[{width: 200, height: 90, left:80, }]}>
+      </ImageBackground>
+      </LinearGradient> 
+         <Text style={styles.descriptionTitle}>Nanotechnology</Text>    
+         <View style={{marginVertical: -28, top:20, flexDirection:"row",justifyContent:'space-between',position: 'absolute'}}>
+          <TouchableOpacity style={{left: -75}}
+              onPress={() => navigation.goBack()}>
+                <Entypo name="chevron-left" size={28} color={colors.black} />
+            </TouchableOpacity>
+
+          <TouchableOpacity style={{left: 250, position: 'absolute',}}
+              onPress={() => navigation.navigate('Nanoparticles')}>
+                <Entypo name="chevron-right" size={28} color={colors.black} />
+          </TouchableOpacity>
+          </View>  
+      </View>
+
 ======================================================================
 source={require('./project/assest/images/test.svg')} />
 ======================================================================
@@ -272,3 +294,20 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/queenofcat/Sentiment-Analysis-of-Cyberbullying-Twitter-Detection.git
 git push -u origin main
+
+================================================
+const SplashStack = createNativeStackNavigator();
+const RegisterStack = createNativeStackNavigator();
+const LoginStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+const QuizStack = createNativeStackNavigator();
+const ProfileStack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();

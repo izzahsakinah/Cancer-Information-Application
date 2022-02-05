@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
-import image from '../assets/images/cancer7.jpg';
+import image from '../assets/images/Stem-cell-cuate.png';
 import colors from '../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 
@@ -9,18 +9,17 @@ const height = Dimensions.get('window').height;
 const DetailsMed = ({navigation}) => {
 return (
     <View style={styles.container}>
-      <ScrollView>
       
-      <ImageBackground source={image} style = {{width: '100%', height: 160,  }}>
-        <View>
-              <TouchableOpacity style={{right: -5,}}
-                  onPress={() => navigation.goBack()}>
-                    <Entypo name="chevron-left" size={28} color={colors.white} />
-                </TouchableOpacity> 
-                <Text style = {{fontSize: 20, color: colors.white2, top:28, textAlign: 'center' }}>Nanomedicine</Text>
-        </View>              
-      </ImageBackground>
-
+      <View style={{top: 1, }}>
+        <ImageBackground source={image} style = {[{width: 200, height: 160, right:10, }]}>
+          </ImageBackground>
+             <Text style={styles.descriptionTitle}>Nanomedicine</Text> 
+                <TouchableOpacity style={{left: 1, position: 'absolute', marginVertical: 5}}
+                  onPress={() => navigation.goBack('Home')}>
+                    <Entypo name="chevron-left" size={28} color={colors.black} />
+                </TouchableOpacity>
+        </View>
+      <ScrollView showsVerticalScrollIndicator={false} >     
         <View style={[{
           flexDirection:'column', 
           margin: 10,
@@ -132,7 +131,17 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#EDECEC',
     height: 'height',
-  }
+  },
+  descriptionTitle: {
+    fontFamily: 'sans-serif-medium',
+    fontSize: 20,
+    color: colors.black,
+    fontWeight: 'bold',
+    top: 60,
+    left:10,
+    position: 'absolute'
+}, 
+
 })
   
 export default DetailsMed;

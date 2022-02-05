@@ -1,27 +1,25 @@
 import React from 'react';
 import { View , TouchableOpacity, Text, StyleSheet, ImageBackground, Dimensions, ScrollView } from 'react-native';
 import colors from '../assets/colors/colors';
-import image from '../assets/images/cancer7.jpg';
+import image from '../assets/images/Circulatory-amico.png';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-
 Entypo.loadFont();
-
 
 const Details = ({navigation}) => {
     
     return (        
-        <View style={styles.container}>
-             <ImageBackground source={image} style={styles.backgroundImage}>            
-                <TouchableOpacity style={styles.backBackgroundImage}
-                onPress={() => navigation.goBack()}>
-                    <Entypo name="chevron-left" size={28} color={colors.white} />
+    <View style={styles.container}>
+        <View style={{top: 1, }}>
+        <ImageBackground source={image} style = {[{width: 200, height: 160, right:10, }]}>
+          </ImageBackground>
+             <Text style={styles.descriptionTitle}>What is Cancer</Text> 
+                <TouchableOpacity style={{left: 1, position: 'absolute', marginVertical: 5}}
+                  onPress={() => navigation.goBack('Home')}>
+                    <Entypo name="chevron-left" size={28} color={colors.black} />
                 </TouchableOpacity>
-           
-            <Text style={styles.descriptionTitle}>About Cancer</Text>
-             </ImageBackground>
-            
-            <ScrollView style={styles.scrollView} contentContainerStyle={{justifyContent: 'center', paddingBottom : 50, alignItems: 'center',}}>
+        </View>            
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={{justifyContent: 'center', paddingBottom : 50, alignItems: 'center',}}>
             {/*Definition*/}
             <View style={styles.descriptionWrapper}>
             <Text style={styles.descriptionTitleMeaning}>
@@ -84,9 +82,12 @@ const styles = StyleSheet.create({
     descriptionTitle: {
         fontFamily: 'sans-serif-medium',
         fontSize: 20,
-        color: colors.white2,
-        textAlign: 'center',
-    },
+        color: colors.black,
+        fontWeight: 'bold',
+        top: 60,
+        left:10,
+        position: 'absolute'
+    },   
     descriptionWrapper:{
        backgroundColor: colors.white2,
        width: '100%',
@@ -99,8 +100,8 @@ const styles = StyleSheet.create({
     backBackgroundImage: {
         color: colors.white,
         fontSize: 10,
-        marginLeft: 20,
-        marginTop: 20,
+        left: 1,
+        top: 5,
     },
     descriptionTitleMeaning:{
         color: colors.black,
@@ -196,8 +197,16 @@ const styles = StyleSheet.create({
         fontSize: 17,
         marginTop: 30,
         textAlign: 'center',
-
     },
+    bg: {
+        width: '40%',
+        height: '25%', 
+        Opacity:0.15,
+        backgroundColor: 'rgba(255,255,355,0.4)',
+        alignSelf: 'center',
+        top: 10,
+        borderRadius: 5,
+    }, 
 });
 
 export default Details;
