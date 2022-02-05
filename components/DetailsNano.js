@@ -15,9 +15,11 @@ const DetailsNano = ({navigation}) => {
       <View style={styles.container}>
         <ScrollView>
       
-        <ImageBackground source={image} style = {[{width: 200, height: 160, alignSelf: 'center', top: 10,}]}>
+      <View style={{top: 10, alignSelf: 'center',}}>
+        <ImageBackground source={image} style = {[{width: 200, height: 160, left:80, }]}>
+          </ImageBackground>
              <Text style={styles.descriptionTitle}>Nanotechnology</Text>    
-             <View style={{marginVertical: -28, flexDirection:"row",justifyContent:'space-between',}}>
+             <View style={{marginVertical: -28, top:20, flexDirection:"row",justifyContent:'space-between',position: 'absolute'}}>
               <TouchableOpacity style={{left: -75}}
                   onPress={() => navigation.goBack()}>
                     <Entypo name="chevron-left" size={28} color={colors.black} />
@@ -28,7 +30,52 @@ const DetailsNano = ({navigation}) => {
                     <Entypo name="chevron-right" size={28} color={colors.black} />
               </TouchableOpacity>
               </View>
-          </ImageBackground>
+          </View>
+
+          <View style={[{
+          flexDirection:'column', 
+          margin: 10,
+          alignSelf: 'center',
+          flex: 4,
+          width: '95%',
+        },
+        ]}>
+          <View style = {[styles.textWrapper, {
+            top:20,            
+            backgroundColor: colors.orange, 
+          }
+          ]}>
+              <Text style = {[{fontSize: 15, fontFamily: 'Roboto', color: colors.white2}]}>
+               The prefix "nano" comes from Greek meaning "dwarf" describing very small size
+              </Text>
+          </View>
+          <View style = {[styles.textWrapper, {
+              top: 5,
+              backgroundColor: colors.mediumorchid,  
+              }]}>
+              <Text style = {[{fontSize: 15, fontFamily: 'Roboto', color: colors.white2}]}>
+              Technology refers to methods, systems, and devices which are the result of scientific knowledge being used for practical purposes
+              </Text>
+          </View>
+          <View style = {[styles.textWrapper, {
+              top: 20,
+              backgroundColor: colors.orchid, 
+              }]}>
+              <Text style = {[{fontSize: 15, fontFamily: 'Roboto', color: colors.white2}]}>
+              Nanotechnology is an application of extremely small particles (nanoparticles) which can be used across many science fields
+              </Text>
+          </View>
+          <View style = {[styles.textWrapper, {
+              top: 20,
+              backgroundColor: colors.orchid, 
+              }]}>
+              <Text style = {[{fontSize: 15, fontFamily: 'Roboto', color: colors.white2}]}>
+              Nanotechnology involved creation of materials, systems, and devices that are useful through manipulating nanoparticleswith size ranged between 1 to 100 nanometre
+              </Text>
+          </View>
+         
+          </View>
+
         </ScrollView>
         
     </View>
@@ -40,36 +87,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#EDECEC',
 
   },
-  meaningWrapper: {    
-    borderRadius: 10,    
-    top: 20,
-    alignSelf: 'center',
-    textAlign: 'center',
-    marginBottom: 10,
+  textWrapper: {    
+    height: '30%',        
+    borderRadius: 10,
+    padding:10,
+    marginBottom: 26,
+    flex: 1,
   }, 
   descriptionTitle: {
       fontFamily: 'sans-serif-medium',
       fontSize: 20,
       color: colors.black,
       fontWeight: 'bold',
-      textAlign: 'center',
-      top:70,
+      top:65,
+      right:120,
+      position: 'absolute'
   },
-  mainWrapper : {
-    alignSelf: 'center',
-    marginBottom: 10,
-  },
-  item: {
-    backgroundColor: colors.white2,
-    width: '90%',
-    height: '20%',
-    marginVertical: 8,
-    merginHorizontal: 10,
-  },
-  description : {
-    fontSize: 10,
-    color: colors.black,
-  }
+ 
 })
   
 export default DetailsNano;
