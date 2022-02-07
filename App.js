@@ -1,12 +1,11 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, Image, View, Text} from 'react-native';
-import 'react-native-gesture-handler';
+import {StyleSheet, Image, View, Text,  TouchableOpacity} from 'react-native';
 import Home from './components/Home';
 import Note from './components/Note';
-//import Splash from './components/Splash';
-//import Register from './components/Register';
-//import Login from './components/Login';
+import Splash from './components/Splash';
+import Register from './components/Register';
+import Login from './components/Login';
 import Details from './components/Details';
 import DetailsNano from './components/DetailsNano';
 import Nanoparticles from './components/Nanoparticles';
@@ -19,209 +18,26 @@ import QuizIntro from './components/QuizIntro';
 import QuizNano from './components/QuizNano';
 import QuizMed from './components/QuizMed';
 import colors from './assets/colors/colors';
+
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
-import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 Entypo.loadFont();
 Feather.loadFont();
 MaterialCommunityIcons.loadFont();
 
-const SplashStack = createNativeStackNavigator();
-const RegisterStack = createNativeStackNavigator();
-const LoginStack = createNativeStackNavigator();
-const HomeStack = createNativeStackNavigator();
-const AboutStack = createNativeStackNavigator();
-const DetailsStack = createNativeStackNavigator();
-const DetailsNanoStack = createNativeStackNavigator();
-const NanoparticlesStack = createNativeStackNavigator();
-const DetailsMedStack = createNativeStackNavigator();
-const QuizIntroStack = createNativeStackNavigator();
-const QuizNanoStack = createNativeStackNavigator();
-const QuizMedStack = createNativeStackNavigator();
-const TabNavigatorStack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
-const Tab = createBottomTabNavigator();
-const Drawer = createDrawerNavigator();
-
-const HomeStack = ({navigation}) => {
-  return (
-    <SplashStack.Navigator>
-        {/*<Stack.Screen
-          name="Splash"
-          component={Splash}
-          options={{headerShown : false,
-          }}
-        /> */}
-     </SplashStack.Navigator>
-  )
-}
-
-const RegisterStack = ({navigation}) => {
-  return (
-    <RegisterStack.Navigator>
-          {/*<Stack.Screen
-          name="Register"
-          component={Register}
-          options={{headerShown : false,
-          }}
-        />*/}
-     </RegisterStack.Navigator>
-  )
-}
-
-const LoginStack = ({navigation}) => {
-  return (
-    <LoginStack.Navigator>
-        {/*<Stack.Screen
-          name="Login"
-          component={Login}
-          options={{headerShown : false,
-          }}
-        />*/}
-     </LoginStack.Navigator>
-  )
-}
-
-const TabNavigatorStack = ({navigation}) => {
-  return (
-    <TabNavigatorStack.Navigator>
-       <Stack.Screen
-          name="TabNavigator"
-          component={TabNavigator}
-          options={{headerShown: false}}
-        />
-     </TabNavigatorStack.Navigator>
-  )
-}
-
-const HomeStack = ({navigation}) => {
-  return (
-    <HomeStack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerShown: false,
-            headerLeft: () => (
-              <Entypo.Button name="menu" size={25} onPress={() => navigation.openDrawer()}></Entypo.Button>
-            )
-          }}
-          //options={{title: 'My home'}}
-        />
-     </HomeStack.Navigator>
-  )
-}
-
-const AboutStack = ({navigation}) => {
-  return (
-    <AboutStack.Navigator>
-        <Stack.Screen
-          name="About"
-          component={About}
-          options={{headerShown: false}}
-        />
-     </AboutStack.Navigator>
-  )
-}
-
-const DetailsStack = ({navigation}) => {
-  return (
-    <DetailsStack.Navigator>
-       <Stack.Screen
-          name="Details"
-          component={Details}
-          options={{headerShown: false}}
-        />
-     </DetailsStack.Navigator>
-  )
-}
-
-const DetailsNanoStack = ({navigation}) => {
-  return (
-    <DetailsNanoStack.Navigator>
-       <Stack.Screen
-          name="DetailsNano"
-          component={DetailsNano}
-          options={{headerShown: false}}
-        />
-     </DetailsNanoStack.Navigator>
-  )
-}
-
-const NanoparticlesStack = ({navigation}) => {
-  return (
-    <NanoparticlesStack.Navigator>
-        {/*<Stack.Screen
-          name="Splash"
-          component={Splash}
-          options={{headerShown : false,
-          }}
-        /> */}
-     </NanoparticlesStack.Navigator>
-  )
-}
-
-const DetailsMedStack = ({navigation}) => {
-  return (
-    <DetailsMedStack.Navigator>
-       <Stack.Screen
-          name="DetailsMed"
-          component={DetailsMed}
-          options={{headerShown: false}}
-        />
-     </DetailsMedStack.Navigator>
-  )
-}
-
-const QuizIntroStack = ({navigation}) => {
-  return (
-    <QuizIntroStack.Navigator>
-         <Stack.Screen
-          name="QuizIntro"
-          component={QuizIntro}
-          options={{headerShown: false}}
-        />
-     </QuizIntroStack.Navigator>
-  )
-}
-
-const QuizNanoStack = ({navigation}) => {
-  return (
-    <QuizNanoStack.Navigator>
-        <Stack.Screen
-          name="QuizNano"
-          component={QuizNano}
-          options={{headerShown: false}}
-        />
-     </QuizNanoStack.Navigator>
-  )
-}
-
-const QuizMedStack = ({navigation}) => {
-  return (
-    <QuizMedStack.Navigator>
-        <Stack.Screen
-          name="QuizMed"
-          component={QuizMed}
-          options={{headerShown: false}}
-        />
-     </QuizMedStack.Navigator>
-  )
-}
-
-
-
-const TabNavigator = () => {
+const TabNavigator = ({navigation}) => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -231,17 +47,20 @@ const TabNavigator = () => {
         // headerShown: false,
       }}>
       <Tab.Screen
-        name="Home"
+        name="Home2"
         component={Home}
         options={{
           title: 'MyNanoria',
           headerStyle: {
-            backgroundColor: '#0b2c54',
+               backgroundColor: '#0b2c54',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'normal',
           },
+          headerLeft: ({color}) => (
+            <Entypo name="menu" size={25} color={colors.white2} style={{left:5}} onPress={() => navigation.toggleDrawer()}></Entypo>
+          ),
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons
@@ -310,14 +129,107 @@ const TabNavigator = () => {
   );
 };
 
+const MainStackNavigator = () => {
+  return (    
+    <Drawer.Navigator>
+    <Drawer.Screen name="Home" component={TabNavigator} 
+    options={{
+      headerShown: false
+    }}  
+    />
+    <Drawer.Screen name="About" 
+        component={About} 
+    options={{
+      headerStyle: {
+          backgroundColor: '#0b2c54',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'normal',
+        }
+      }}/>
+      {/*<Drawer.Screen name="Logout" component={Logout}
+      options={{
+        marginBottom: 15, 
+        borderTopColor: '#f4f4f4', 
+        borderTopWidth:1}}
+      />*/}
+  </Drawer.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="About" component={AboutStack}/>
-        <Drawer.Screen name="Logout" component={Logout}/>
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator>
+    {/*<Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{headerShown : false,
+        }}
+      /> 
+      <Stack.Screen
+        name="Register"
+        component={Register}
+        options={{headerShown : false,
+        }}
+      /> 
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{headerShown : false,
+        }}
+      />*/}
+      <Stack.Screen
+          name="Menu"
+          component={MainStackNavigator}
+          options={{ headerShown: false }}
+        />
+      <Stack.Screen
+        name="Home1"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+        //options={{title: 'My home'}}
+      />
+      <Stack.Screen
+        name="Details"
+        component={Details}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DetailsNano"
+        component={DetailsNano}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Nanoparticles"
+        component={Nanoparticles}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DetailsMed"
+        component={DetailsMed}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="QuizIntro"
+        component={QuizIntro}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="QuizNano"
+        component={QuizNano}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="QuizMed"
+        component={QuizMed}
+        options={{headerShown: false}}
+      />
+      </Stack.Navigator>
+      </NavigationContainer>
   );
 };
 

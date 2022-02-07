@@ -10,8 +10,8 @@ const Details = ({navigation}) => {
     
     return (        
     <View style={styles.container}>
-        <View style={{top: 1, }}>
-        <ImageBackground source={image} style = {[{width: 200, height: 160, right:10, }]}>
+        <View style={{top:1, backgroundColor: colors.white2, }}>
+        <ImageBackground source={image} style = {{width: 170, height: 160, right:-25, }}>
           </ImageBackground>
              <Text style={styles.descriptionTitle}>What is Cancer</Text> 
                 <TouchableOpacity style={{left: 1, position: 'absolute', marginVertical: 5}}
@@ -19,7 +19,7 @@ const Details = ({navigation}) => {
                     <Entypo name="chevron-left" size={28} color={colors.black} />
                 </TouchableOpacity>
         </View>            
-            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={{justifyContent: 'center', paddingBottom : 50, alignItems: 'center',}}>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={{justifyContent: 'center', paddingBottom : 20, alignItems: 'center',}}>
             {/*Definition*/}
             <View style={styles.descriptionWrapper}>
             <Text style={styles.descriptionTitleMeaning}>
@@ -70,7 +70,7 @@ const Details = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#EDECEC',
+        backgroundColor: colors.white2,
     },
     scrollView: {
         margin: 20,
@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
         color: colors.black,
         fontWeight: 'bold',
         top: 60,
-        left:10,
+        right:25,
         position: 'absolute'
     },   
     descriptionWrapper:{
-       backgroundColor: colors.white2,
+       backgroundColor: colors.cream,
        width: '100%',
        height: '25%',
        borderRadius: 20,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
 
     },
     descriptionSecondWrapper: {
-        backgroundColor: colors.white2,        
+        backgroundColor: colors.gray,        
         width: '100%',
         height: '20%',
         borderRadius: 20,
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     descriptionThirdWrapper: {
-        backgroundColor: colors.white2,        
+        backgroundColor: colors.cream,        
         width: '100%',
         height: '28%',
         borderRadius: 20,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
 
     },
     descriptionForthWrapper: {
-        backgroundColor: colors.white2,        
+        backgroundColor: colors.gray,        
         width: '100%',
         height: '20%',   
         borderRadius: 20,

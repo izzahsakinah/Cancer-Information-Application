@@ -32,6 +32,7 @@ const colors =
             blueish: '#89c2d9',
             blueish1: '#468faf',
             blueish2: '#2a6f97',
+            blueish3: '#caf0f8',
           
     }
 
