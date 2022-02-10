@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1021588312182",
+    "project_id": "mynanoria-1",
+    "storage_bucket": "mynanoria-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021588312182:android:f505fe8315acc59b4f8f57",
+        "android_client_info": {
+          "package_name": "com.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021588312182-mg9aorat5j03begh77e32v4kkdviv4uh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpMpltyQGlQ1KhVpz_H31XvHAEVsl44A4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021588312182-mg9aorat5j03begh77e32v4kkdviv4uh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
