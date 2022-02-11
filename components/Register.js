@@ -7,7 +7,7 @@ import {
   View,
   TouchableOpacity,
   Dimensions, 
-  useState,
+  StatusBar,
   Image,
 } from 'react-native';
 import colors from '../assets/colors/colors';
@@ -49,6 +49,7 @@ export default class Register extends Component {
    else
    {
        var insertAPIURL  = "http://10.0.2.2:80/api/registration.php";
+       //var insertAPIURL  = "https://homieutm.com/mynanoria/registration.php";
 
        var headers = { 
          'Accept': 'application/json',
@@ -82,7 +83,8 @@ export default class Register extends Component {
 
    render()
    { return (
-      <View style={styles.container}>        
+      <View style={styles.container}> 
+      <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />       
         <Image source={image} style={styles.imageStyle}/>
         <TextInput
           style={styles.textInput}
@@ -125,7 +127,7 @@ export default class Register extends Component {
         <View>
             <Text
               onPress={() =>  this.props.navigation.navigate("Login")}
-              style={{color:colors.black, fontSize: 10, top:-15,}}>
+              style={{color:colors.black, fontSize: 10, bottom:-5,}}>
                   Already Register? Click here to login
             </Text>
         </View>
