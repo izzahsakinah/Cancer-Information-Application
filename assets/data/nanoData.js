@@ -12,7 +12,8 @@ export default nanoData = [
     {
         question: "What is the main purpose of invention of nanotechnology?",
         options: ["To develop innovative methods in treating disease with excellent accuracy and effective.",
-                    "To decrease infectious disease among people","To provide higher safety precautions among healthcares with lessen the death."],
+                  "To decrease infectious disease among people.",
+                "To provide higher safety precautions among healthcares with lessen the death."],
         correct_option: "To develop innovative methods in treating disease with excellent accuracy and effective."
     },
     {

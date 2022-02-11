@@ -4,6 +4,7 @@ import data from '../assets/data/medData';
 import Entypo from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/colors';
+import { color } from 'react-native-reanimated';
 
 MaterialCommunityIcons.loadFont();
 
@@ -116,7 +117,7 @@ const QuizMed = ({navigation}) => {
                         : option==currentOptionSelected 
                         ? colors.error +'20'
                         : colors.black+'20',
-                        height: 95, 
+                        height: 80, 
                         borderRadius: 20,
                         flexDirection: 'row',
                         alignItems: 'center', 
@@ -178,7 +179,7 @@ const QuizMed = ({navigation}) => {
                   marginTop: 20, 
                   width: '100%', 
                   backgroundColor: '#0b2c54', 
-                  padding: 15, 
+                  padding: 10, 
                   borderRadius: 5
               }}>
                   <Text style={{fontSize: 20, color: colors.white2, textAlign: 'center'}}>Next</Text>
@@ -255,18 +256,18 @@ return (
           >
             <View style={{
                        flex: 1,
-                       backgroundColor: colors.darkBlue,
+                       backgroundColor: '#EDECEC',
                        alignItems: 'center',
                        justifyContent: 'center'
                    }}>
                       <View style={{
-                           backgroundColor: colors.white,
+                           backgroundColor: colors.darkBlue,
                            width: '90%',
                            borderRadius: 20,
                            padding: 20,
                            alignItems: 'center'
                        }}>
-                          <Text style={{fontSize: 30, fontWeight: 'bold', color: 'grey'}}>
+                          <Text style={{fontSize: 30, fontWeight: 'bold', color: colors.white2}}>
                               { score> (allQuestions.length/2) ? 'Congratulations!' : 'Try again :(' }
                               </Text>
 
@@ -281,7 +282,7 @@ return (
                                    color: score> (allQuestions.length/2) ? colors.success : colors.error
                                }}>{score}</Text>
                                 <Text style={{
-                                    fontSize: 20, color: colors.black1
+                                    fontSize: 20, color: colors.white2
                                 }}>/ { allQuestions.length }</Text>
                            </View>
                             {/* Retry Quiz button */}
@@ -289,13 +290,13 @@ return (
                            //onPress={restartQuiz}
                            onPress= {()=> navigation.navigate("Quiz")}
                            style={{
-                               backgroundColor: colors.accent,
+                               backgroundColor: colors.white2,
                                padding: 15, 
                                width: '100%', 
                                borderRadius: 20
                            }}>
                               <Text style={{
-                                   textAlign: 'center', color: colors.white, fontSize: 20
+                                   textAlign: 'center', color: colors.black1, fontSize: 20
                                }}>Back</Text>
                            </TouchableOpacity>
                        </View>

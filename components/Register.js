@@ -48,8 +48,8 @@ export default class Register extends Component {
    }
    else
    {
-       var insertAPIURL  = "http://10.0.2.2:80/api/registration.php";
-       //var insertAPIURL  = "https://homieutm.com/mynanoria/registration.php";
+       //var insertAPIURL  = "http://10.0.2.2:80/api/registration.php";
+       var insertAPIURL  = "https://homieutm.com/mynanoria/registration.php";
 
        var headers = { 
          'Accept': 'application/json',

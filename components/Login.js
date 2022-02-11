@@ -34,8 +34,8 @@ export default class Login extends Component {
     }
   else{
 
-      var insertAPIURL  = "http://10.0.2.2:80/api/login.php";
-      //var insertAPIURL = "https://homieutm.com/mynanoria/login.php"
+      //var insertAPIURL  = "http://10.0.2.2:80/api/login.php";
+      var insertAPIURL = "https://homieutm.com/mynanoria/login.php"
 
       var headers = { 
         'Accept': 'application/json',

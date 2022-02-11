@@ -14,10 +14,10 @@ export default medData = [
     },
     {
         question: "Choose correct answer about nanoparticles",
-        options: [ "Large surface area to volume ratio of nanoparticles allows them to absorb and contain various types of anticancer agents, such as chemotherapeutic drugs.",
-                   "Small surface area to volume ratio of nanoparticles allows them to absorb and contain various types of anticancer agents, such as chemotherapeutic drugs."
-                ],
-        correct_option: "Large surface area to volume ratio of nanoparticles allows them to adsorb and contain various types of anticancer agents, such as chemotherapeutic drugs."
+        options: [ "Great surface area to volume ratio of nanoparticles allows them to absorb and contain various types of anticancer agents.",
+                   "Small surface of nanoparticles allows them to absorb and contain various types of anticancer agents."
+                    ],
+        correct_option: "Great surface area to volume ratio of nanoparticles allows them to absorb and contain various types of anticancer agents."
     },
     {
         question: "Technique used to store a cancer drug inside tiny objects called as?",
