@@ -298,6 +298,8 @@ git push -u origin main
 ================================================
 git merge origin/main
 =================================================
+https://stackoverflow.com/questions/5669209/why-do-i-get-error-failed-to-push-some-refs
+==================================================
 const SplashNavigator = ({navigation}) => {
   return (
     <Stack.Navigator>
