@@ -299,6 +299,11 @@ git push -u origin main
 git merge origin/main
 =================================================
 https://stackoverflow.com/questions/5669209/why-do-i-get-error-failed-to-push-some-refs
+
+git checkout master   
+git branch main master -f    
+git checkout main  
+git push origin main -f 
 ==================================================
 const SplashNavigator = ({navigation}) => {
   return (
