@@ -214,17 +214,23 @@ const App = () => {
       <Stack.Screen
         name="QuizIntro"
         component={QuizIntro}
-        options={{headerShown: false}}
+        options={{headerShown: false,
+        backgroundColor: '#FFFFFF', 
+        flex: 1,}}
       />
       <Stack.Screen
         name="QuizNano"
         component={QuizNano}
-        options={{headerShown: false}}
+        options={{headerShown: false,
+        backgroundColor: '#FFFFFF', 
+        flex: 1,}}
       />
       <Stack.Screen
         name="QuizMed"
         component={QuizMed}
-        options={{headerShown: false}}
+        options={{headerShown: false,
+        backgroundColor: '#FFFFFF',
+        flex: 1,}}
       />  
       </Stack.Navigator>      
      </NavigationContainer>  

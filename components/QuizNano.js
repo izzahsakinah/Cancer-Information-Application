@@ -178,7 +178,7 @@ const QuizNano = ({navigation}) => {
                   marginTop: 20, 
                   width: '100%', 
                   backgroundColor: '#0b2c54', 
-                  padding: 10, 
+                  padding: 15, 
                   borderRadius: 5
               }}>
                   <Text style={{fontSize: 20, color: colors.white2, textAlign: 'center'}}>Next</Text>
@@ -221,7 +221,7 @@ return (
 <ScrollView>
     <SafeAreaView >
         <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54' />
-        <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>        
+        <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
         <Entypo name='close' color={colors.grey} size={28} style = {[{left:10, top: -1, backgroundColor: '#EDECEC'}]} />
         </TouchableOpacity> 
     
@@ -252,21 +252,21 @@ return (
           animationType="slide"
           transparent={true}
           visible={showScoreModal}
-          >           
+          >
             <View style={{
                        flex: 1,
-                       backgroundColor: '#EDECEC',
+                       backgroundColor: colors.darkBlue,
                        alignItems: 'center',
                        justifyContent: 'center'
                    }}>
                       <View style={{
-                           backgroundColor: colors.darkBlue,
+                           backgroundColor: colors.white,
                            width: '90%',
                            borderRadius: 20,
                            padding: 20,
                            alignItems: 'center'
                        }}>
-                          <Text style={{fontSize: 30, fontWeight: 'bold', color: colors.white2}}>
+                          <Text style={{fontSize: 30, fontWeight: 'bold', color: 'grey'}}>
                               { score> (allQuestions.length/2) ? 'Congratulations!' : 'Try again :(' }
                               </Text>
 
@@ -281,7 +281,7 @@ return (
                                    color: score> (allQuestions.length/2) ? colors.success : colors.error
                                }}>{score}</Text>
                                 <Text style={{
-                                    fontSize: 20, color: colors.white2
+                                    fontSize: 20, color: colors.black1
                                 }}>/ { allQuestions.length }</Text>
                            </View>
                             {/* Retry Quiz button */}
@@ -289,13 +289,13 @@ return (
                            //onPress={restartQuiz}
                            onPress= {()=> navigation.navigate("Quiz")}
                            style={{
-                               backgroundColor: colors.white2,
+                               backgroundColor: colors.accent,
                                padding: 15, 
                                width: '100%', 
                                borderRadius: 20
                            }}>
                               <Text style={{
-                                   textAlign: 'center', color: colors.black1, fontSize: 20
+                                   textAlign: 'center', color: colors.white, fontSize: 20
                                }}>Back</Text>
                            </TouchableOpacity>
                        </View>
