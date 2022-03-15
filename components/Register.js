@@ -7,7 +7,7 @@ import {
   View,
   TouchableOpacity,
   Dimensions, 
-  useState,
+  StatusBar,
   Image,
 } from 'react-native';
 import colors from '../assets/colors/colors';
@@ -21,10 +21,10 @@ export default class Register extends Component {
   constructor(props)
   {
     super(props);
-    this.state = {username:'', useremail:'', userpassword:''};
+    this.state = {username:"", useremail:"", userpassword:""};
   }
 
-  insertUsers=()=>
+  insertUsers = () =>
   {
     var username  = this.state.username;
     var useremail = this.state.useremail;
@@ -42,16 +42,14 @@ export default class Register extends Component {
     else if (userpassword.length<3)
     {
        alert("Minimum 4 characters required");
-   }else if (!((/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/).test(userpassword)))
-   {
-     alert("At least 1 special character");
    }else if (((/[ ]/).test(userpassword)))
    {
      alert("Cannot include space in password");
    }
    else
    {
-       var insertAPIURL  = "http://localhost/api/register.php";
+       //var insertAPIURL  = "http://10.0.2.2:80/api/registration.php";
+       var insertAPIURL  = "https://homieutm.com/mynanoria/registration.php";
 
        var headers = { 
          'Accept': 'application/json',
@@ -73,7 +71,7 @@ export default class Register extends Component {
        .then((response) => 
          {
            alert(response[0].Message);
-           this.props.navigation.navigate("Login"); 
+           this.props.navigation.navigate("Menu"); 
          }
        )
        .catch((error)=>
@@ -85,12 +83,13 @@ export default class Register extends Component {
 
    render()
    { return (
-      <View style={styles.container}>        
+      <View style={styles.container}> 
+      <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />       
         <Image source={image} style={styles.imageStyle}/>
         <TextInput
           style={styles.textInput}
           autoCapitalize="none"
-          placeholder="Name" 
+          placeholder="Full Name" 
           placeholderTextColor="#A59696"
           onChangeText={username=>this.setState({username})}
         />
@@ -118,9 +117,8 @@ export default class Register extends Component {
         />
         
         <View style={{marginVertical: 10}}>
-          <TouchableOpacity style={styles.registerButton} onPress= {() => 
-          this.props.navigation.navigate("Login")
-          }>
+          <TouchableOpacity style={styles.registerButton} 
+          onPress= {this.insertUsers}>
             <Text style={styles.registerText}> 
                 Enter
             </Text>
@@ -129,7 +127,7 @@ export default class Register extends Component {
         <View>
             <Text
               onPress={() =>  this.props.navigation.navigate("Login")}
-              style={{color:colors.black, fontSize: 10, top:-10,}}>
+              style={{color:colors.black, fontSize: 10, bottom:-5,}}>
                   Already Register? Click here to login
             </Text>
         </View>

@@ -17,11 +17,11 @@ const Quiz =({ navigation }) => {
       <SafeAreaView>
           <View style={styles.homeWrapper}>
             <Text style={styles.quizTopicsText}> 
-                 Quiz
+                 Let's Take Quizzes
             </Text>
-          </View>
+            </View>
           
-           <View style={{margin: 5,}}>
+           <View style={{margin: 28,}}>
           <View style={styles.wrapperDetails}>
             <TouchableOpacity onPress= {()=> navigation.navigate("QuizIntro")}>
             <View style={styles.quizWrapper}>              
@@ -102,12 +102,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginTop: -10,
   },  
-  homeWrapper: {
-    top: 25,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  //homeWrapper: {
+    //bottom: 30,
+    //flexDirection: 'row',
+    //justifyContent: 'space-between',
+    //alignItems: 'center',
+ // },
   imageStyle:{
     width: 170,
     height: 170,    
@@ -123,10 +123,10 @@ const styles = StyleSheet.create({
   },
   quizTopicsText: {
     fontFamily: 'Roboto',
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: colors.black1,
-    top: 10, 
+    top: 58, 
     left: 20,
 
   },
@@ -143,7 +143,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center', 
-    
   }
 });
 

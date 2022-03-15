@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image, Dimensions} from 'react-native';
-import image from '../assets/images/M.png';
+import {View, Text, StyleSheet, StatusBar, Image, Dimensions, ActivityIndicator, ImageBackground} from 'react-native';
+import image from '../assets/images/Picture1.png';
 //import firebase from 'react-native-firebase';
 import colors from '../assets/colors/colors'
 
@@ -22,6 +22,7 @@ render()
 {  
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor= '#EDECEC'/>
           <Image source={image} style={styles.imageStyle}/>
          {/*<Text style={styles.titleText}>MyNanoria</Text>
        <ActivityIndicator style={styles.loadingAct} size="small" />*/}
@@ -35,28 +36,33 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.white2,
+    backgroundColor: '#EDECEC',
     height: height,
+    alignSelf: 'center'
   },
   titleText: {
     fontSize: 20,
-    color: colors.darkBlue,
+    color: colors.black,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
     top:10,
   },
   loadingAct: {
-    color: colors.darkBlue,
+    color: colors.black1,
+    bottom: -5,
   },
   imageStyle: {
-    width: 200,
-    height: 200,
+    width: '60%',
+    height: '60%',
+    position: 'absolute',
+    alignSelf: 'center',
+    //margin: 28,
   },
   buttonStyle: {
     width: 80,
     height:40,
     backgroundColor: colors.darkBlue,
     borderRadius: 8,
-    margin: 20,
+    margin: 5,
   },
 });

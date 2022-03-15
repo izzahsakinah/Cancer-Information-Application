@@ -9,7 +9,7 @@ Entypo.loadFont();
 const DetailsNano = ({navigation}) => {
     return (
       <View style={styles.container}>      
-
+      <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />
       <View style={{top: 1, }}>
         <ImageBackground source={image} style = {[{width: 200, height: 160, left:158, }]}>
           </ImageBackground>

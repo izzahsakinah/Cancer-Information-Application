@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, StyleSheet, ScrollView, StatusBar} from 'react-native';
 import image from '../assets/images/Questions-pana.png';
 import colors from '../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -8,8 +8,8 @@ Entypo.loadFont();
 
 const DetailsNano = ({navigation}) => {
 return (
-
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />
       <View style={{top: 1, }}>
         <ImageBackground source={image} style = {[{width: 200, height: 160, left:10, }]}>
           </ImageBackground>

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">myapp</string>
+    <string name="app_name">MyNanoria</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">NJIWluFpL4LKoqzfgQ5Uu-UP7GiuGxJ33TfVO</string>
 </resources>

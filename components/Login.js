@@ -1,5 +1,5 @@
 
-import React, { Component, useContext, useState } from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Dimensions,  
   Image,
+  StatusBar,
 } from 'react-native';
 import colors from '../assets/colors/colors';
 import image from '../assets/images/Login.gif';
@@ -22,7 +23,7 @@ export default class Login extends Component {
     this.state = {useremail:'', userpassword:''};
   }
 
-  insertUsers=()=>
+  insertUsers = ()=>
   {
     var useremail = this.state.useremail;
     var userpassword = this.state.userpassword;
@@ -33,7 +34,8 @@ export default class Login extends Component {
     }
   else{
 
-      var insertAPIURL  = "http://localhost/api/login.php";
+      //var insertAPIURL  = "http://10.0.2.2:80/api/login.php";
+      var insertAPIURL = "https://homieutm.com/mynanoria/login.php"
 
       var headers = { 
         'Accept': 'application/json',
@@ -55,7 +57,7 @@ export default class Login extends Component {
       .then((Response)=>{
         if (Response[0].Message == "Success") {
           console.log("true")
-          this.props.navigation.navigate("TabNavigator");
+          this.props.navigation.navigate("Menu");
         }
         console.log(data);
       })
@@ -69,6 +71,7 @@ export default class Login extends Component {
   {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />
         <Image source={image} style={styles.imageStyle}/>
         <TextInput
           style={styles.textInput}
@@ -88,7 +91,7 @@ export default class Login extends Component {
         
         <View style={{marginVertical: 20}}>
           <TouchableOpacity style={styles.loginButton} 
-           onPress = {() => this.props.navigation.navigate('Menu')}>
+           onPress = {this.insertUsers}>
             <Text style={styles.loginText}> 
               Login
             </Text>

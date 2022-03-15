@@ -1,5 +1,5 @@
 import React from 'react';
-import { View , TouchableOpacity, Text, StyleSheet, ImageBackground, Dimensions, ScrollView } from 'react-native';
+import { View , TouchableOpacity, Text, StyleSheet, ImageBackground, StatusBar, ScrollView } from 'react-native';
 import colors from '../assets/colors/colors';
 import image from '../assets/images/Stem-cell-bro.png';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -10,6 +10,7 @@ const Details = ({navigation}) => {
     
     return (        
     <View style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />
         <View style={{top:1, backgroundColor: colors.white2, }}>
         <ImageBackground source={image} style = {{width: 170, height: 160, right:-25, }}>
           </ImageBackground>

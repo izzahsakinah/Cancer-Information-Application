@@ -172,12 +172,11 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.black,
     backgroundColor: '#EDECEC',
-    justifyContent: 'center',
-    alignItems: 'center',
+    
   },
   menuWrapper: {
     backgroundColor:'#0b2c54',
-    width: 360,
+    width: '100%',
     height: 160,
     top: -35,
   },
@@ -273,7 +272,9 @@ const styles = StyleSheet.create({
   },
   itemsWrapper: {
     top: 10,
-    left : 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
   },
 });
 

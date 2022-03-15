@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import colors from '../assets/colors/colors';
 
 MaterialCommunityIcons.loadFont();
+const height = Dimensions.get('window').height;
 
 const QuizNano = ({navigation}) => {
 
@@ -220,20 +221,22 @@ const QuizNano = ({navigation}) => {
 return (
 <ScrollView>
     <SafeAreaView >
-        <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54' />
-        <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
-        <Entypo name='close' color={colors.grey} size={28} style = {[{left:10, top: -1, backgroundColor: '#EDECEC'}]} />
-        </TouchableOpacity> 
+        <View>
+        <StatusBar barStyle="dark-content" backgroundColor= '#EDECEC' />
     
             <View style={{
+            flex:1,
             paddingVertical: 40,
             paddingHorizontal: 16,
-            backgroundColor: '#EDECEC',
+           // backgroundColor: '#EDECEC',
             position:'relative', 
-            height: '100%',
+            height: '400%',
             width: '100%',
         }}>
-                   
+            <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
+            <Entypo name='close' color={colors.grey} size={28} style = {[{botton:30, right:15, }]} />
+            </TouchableOpacity> 
+                
            {/* ProgressBar */}
            { renderProgressBar() }
       
@@ -253,6 +256,7 @@ return (
           transparent={true}
           visible={showScoreModal}
           >
+            <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54'/>
             <View style={{
                        flex: 1,
                        backgroundColor: colors.darkBlue,
@@ -318,6 +322,7 @@ return (
                 resizeMode={'contain'}
             />*/}
 
+           </View>
            </View>
        </SafeAreaView>
        </ScrollView>

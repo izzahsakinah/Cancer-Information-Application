@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import image from '../assets/images/Doctors-pana.png';
 import colors from '../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -9,8 +9,8 @@ Entypo.loadFont();
 const DetailsMed = ({navigation}) => {
 return (
     <View style={styles.container}>
-      
-      <View style={{top: 1, }}>
+      <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />
+      <View style={{height:145}}>
         <ImageBackground source={image} style = {[{width: 200, height: 160, right:-5, }]}>
           </ImageBackground>
              <Text style={styles.descriptionTitle}>Nanomedicine</Text> 
@@ -22,7 +22,8 @@ return (
       <ScrollView showsVerticalScrollIndicator={false} >     
         <View style={[{
          flexDirection:'column', 
-         margin: 30,
+         marginTop: 40,
+         marginBottom: -30,
          alignSelf: 'center',
          flex: 7,
          width: '95%',
@@ -103,7 +104,7 @@ return (
               </Text>
           </View>
           <View style = {{ 
-              top: -65,
+              top: -70,
               backgroundColor: colors.orchid, 
               borderRadius: 10,
               paddingHorizontal: 8,

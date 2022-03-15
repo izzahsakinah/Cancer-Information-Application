@@ -28,10 +28,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import codePush from "react-native-code-push";
 
 Entypo.loadFont();
 Feather.loadFont();
 MaterialCommunityIcons.loadFont();
+
+const codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_START };
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -53,6 +56,7 @@ const TabNavigator = ({navigation}) => {
           title: 'MyNanoria',
           headerStyle: {
                backgroundColor: '#0b2c54',
+               width: '100%'
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -96,6 +100,7 @@ const TabNavigator = ({navigation}) => {
           title: 'MyNanoria',
           headerStyle: {
             backgroundColor: '#0b2c54',
+            width: '100%'
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -159,6 +164,7 @@ const MainStackNavigator = () => {
 };
 
 const App = () => {  
+  
   return (       
     <NavigationContainer>               
     <Stack.Navigator>    
@@ -249,4 +255,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default codePush(codePushOptions)(App);

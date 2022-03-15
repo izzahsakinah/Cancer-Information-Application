@@ -1,11 +1,12 @@
 import React, { useState, Component } from 'react'
-import { View, Text, ScrollView, SafeAreaView, StatusBar, TouchableOpacity, Modal, Animated } from 'react-native'
+import { View, Text, ScrollView, SafeAreaView, Dimensions, StatusBar, TouchableOpacity, Modal, Animated } from 'react-native'
 import data from '../assets/data/introData';
 import Entypo from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/colors';
 
 MaterialCommunityIcons.loadFont();
+const height = Dimensions.get('window').height;
 
 const QuizIntro = ({navigation}) => {
 
@@ -222,19 +223,21 @@ return (
 <ScrollView>
     <SafeAreaView >
         <StatusBar barStyle="dark-content" backgroundColor= '#EDECEC' />
-        <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
-        <Entypo name='close' color={colors.black} size={28} style = {[{left:10, top: -1, backgroundColor: '#EDECEC'}]} />
-        </TouchableOpacity> 
-    
+        <View>
+
             <View style={{
+            flex:1,
             paddingVertical: 40,
             paddingHorizontal: 16,
-            backgroundColor: '#EDECEC',
+            //backgroundColor: '#EDECEC',
             position:'relative', 
-            height: '100%',
+            height: '500%',
             width: '100%',
         }}>
-                   
+            <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
+            <Entypo name='close' color={colors.grey} size={28} style = {[{botton:38, right:15, }]} />
+            </TouchableOpacity> 
+            
            {/* ProgressBar */}
            { renderProgressBar() }
       
@@ -254,6 +257,7 @@ return (
           transparent={true}
           visible={showScoreModal}
           >
+            <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54'/>
             <View style={{
                        flex: 1,
                        backgroundColor: colors.darkBlue,
@@ -319,6 +323,7 @@ return (
                 resizeMode={'contain'}
             />*/}
 
+           </View>
            </View>
        </SafeAreaView>
        </ScrollView>

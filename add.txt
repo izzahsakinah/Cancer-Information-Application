@@ -696,3 +696,9 @@ export default class Register extends Component {
         }
     }
     ===============================================================================
+    codepush
+    
+    appcenter codepush release-react -a foxsfames-gmail.com/MyNanoria -d Staging
+
+    ============================================================================
+    

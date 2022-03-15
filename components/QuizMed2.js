@@ -4,9 +4,9 @@ import data from '../assets/data/medData';
 import Entypo from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/colors';
+import { color } from 'react-native-reanimated';
 
 MaterialCommunityIcons.loadFont();
-const height = Dimensions.get('window').height;
 
 const QuizMed = ({navigation}) => {
 
@@ -117,7 +117,7 @@ const QuizMed = ({navigation}) => {
                         : option==currentOptionSelected 
                         ? colors.error +'20'
                         : colors.black+'20',
-                        height: 90, 
+                        height: 80, 
                         borderRadius: 20,
                         flexDirection: 'row',
                         alignItems: 'center', 
@@ -125,11 +125,11 @@ const QuizMed = ({navigation}) => {
                         justifyContent: 'space-between',
                         paddingHorizontal: 20,
                         marginVertical: 10,
-                        backgroundColor: 'white',
-                        borderColor : 'white',
+                        backgroundColor: '#EDECEC',
+                        borderColor : '#EDECEC',
                     }}
                     >
-                    <Text style={{fontSize: 18, color: colors.black}}>{option}</Text>
+                    <Text style={{fontSize: 15, color: colors.black}}>{option}</Text>
 
                     {/* Show Check Or Cross Icon based on correct answer*/}
                     {
@@ -179,7 +179,7 @@ const QuizMed = ({navigation}) => {
                   marginTop: 20, 
                   width: '100%', 
                   backgroundColor: '#0b2c54', 
-                  padding: 15, 
+                  padding: 10, 
                   borderRadius: 5
               }}>
                   <Text style={{fontSize: 20, color: colors.white2, textAlign: 'center'}}>Next</Text>
@@ -220,23 +220,22 @@ const QuizMed = ({navigation}) => {
   }
 return (
 <ScrollView>
-    <SafeAreaView >     
-        <View>
-        <StatusBar barStyle="dark-content" backgroundColor= '#EDECEC' />
-
+    <SafeAreaView >
+        <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />
+        <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
+        <Entypo name='close' color={colors.grey} size={28} style = {[{left:10, top: -1, backgroundColor: '#FFFFFF'}]} />
+        </TouchableOpacity> 
+    
             <View style={{
-            flex:1,
             paddingVertical: 40,
             paddingHorizontal: 16,
-            //backgroundColor: '#EDECEC',
+            backgroundColor: '#FFFFFF',
+            flex: 1,
             position:'relative', 
-            height: '500%',
+            height: '200%',
             width: '100%',
         }}>
-            <TouchableOpacity onPress= {()=> navigation.navigate('Quiz')}>
-            <Entypo name='close' color={colors.grey} size={28} style = {[{botton:30, right:15,}]} />
-            </TouchableOpacity> 
-                
+                   
            {/* ProgressBar */}
            { renderProgressBar() }
       
@@ -256,22 +255,20 @@ return (
           transparent={true}
           visible={showScoreModal}
           >
-            <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54'/>
-
             <View style={{
                        flex: 1,
-                       backgroundColor: colors.darkBlue,
+                       backgroundColor: '#FFFFFF',
                        alignItems: 'center',
                        justifyContent: 'center'
                    }}>
                       <View style={{
-                           backgroundColor: colors.white,
+                           backgroundColor: colors.darkBlue,
                            width: '90%',
                            borderRadius: 20,
                            padding: 20,
                            alignItems: 'center'
                        }}>
-                          <Text style={{fontSize: 30, fontWeight: 'bold', color: 'grey'}}>
+                          <Text style={{fontSize: 30, fontWeight: 'bold', color: colors.white2}}>
                               { score> (allQuestions.length/2) ? 'Congratulations!' : 'Try again :(' }
                               </Text>
 
@@ -281,12 +278,13 @@ return (
                                alignItems: 'center',
                                marginVertical: 20
                            }}>
+                               <Text style={{fontSize: 30, color: colors.white2}}>Correct: </Text>
                               <Text style={{
                                    fontSize: 30,
                                    color: score> (allQuestions.length/2) ? colors.success : colors.error
                                }}>{score}</Text>
                                 <Text style={{
-                                    fontSize: 20, color: colors.black1
+                                    fontSize: 20, color: colors.white2
                                 }}>/ { allQuestions.length }</Text>
                            </View>
                             {/* Retry Quiz button */}
@@ -294,13 +292,13 @@ return (
                            //onPress={restartQuiz}
                            onPress= {()=> navigation.navigate("Quiz")}
                            style={{
-                               backgroundColor: colors.accent,
+                               backgroundColor: colors.white2,
                                padding: 15, 
                                width: '100%', 
                                borderRadius: 20
                            }}>
                               <Text style={{
-                                   textAlign: 'center', color: colors.white, fontSize: 20
+                                   textAlign: 'center', color: colors.black1, fontSize: 20
                                }}>Back</Text>
                            </TouchableOpacity>
                        </View>
@@ -323,7 +321,6 @@ return (
                 resizeMode={'contain'}
             />*/}
 
-           </View>
            </View>
        </SafeAreaView>
        </ScrollView>
