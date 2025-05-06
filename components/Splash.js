@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, StatusBar, Image, Dimensions, ActivityIndicator, ImageBackground} from 'react-native';
-import image from '../assets/images/Picture1.png';
+import {View, Text, StyleSheet, StatusBar, ImageBackground, Dimensions, ActivityIndicator} from 'react-native';
+import image from '../assets/images/gambar1.jpg';
 //import firebase from 'react-native-firebase';
-import colors from '../assets/colors/colors'
+import colors from '../assets/colors/colors';
 
 const height = Dimensions.get('window').height;
 
@@ -13,7 +13,7 @@ export default class Splash extends Component
     super(props);
     setTimeout(() => 
     {
-      this.props.navigation.navigate("Login");
+      this.props.navigation.navigate("Menu");
       
     },5000);
 
@@ -21,16 +21,18 @@ export default class Splash extends Component
 render()
 {  
     return (
-      <View style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor= '#EDECEC'/>
-          <Image source={image} style={styles.imageStyle}/>
-         {/*<Text style={styles.titleText}>MyNanoria</Text>
-       <ActivityIndicator style={styles.loadingAct} size="small" />*/}
-      </View>
-      );
+      //<View style={styles.container}>
+      //</View>
+        <ImageBackground source={image} style={styles.imageStyle}>
+        <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF'/>
+        </ImageBackground>
+        
+      ); 
     }
   }
-
+{/*<Text style={styles.titleText}>MyNanoria</Text>
+       <ActivityIndicator style={styles.loadingAct} size="small" />*/}
+     
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -52,10 +54,11 @@ const styles = StyleSheet.create({
     bottom: -5,
   },
   imageStyle: {
-    width: '60%',
-    height: '60%',
+    width: '100%',
+    height: '100%',
     position: 'absolute',
-    alignSelf: 'center',
+    //alignSelf: 'center',
+    resizeMode: 'cover',
     //margin: 28,
   },
   buttonStyle: {

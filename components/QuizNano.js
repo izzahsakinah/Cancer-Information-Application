@@ -251,26 +251,26 @@ return (
           
 
           {/* Score Modal */}
-        <Modal
+          <Modal
           animationType="slide"
           transparent={true}
           visible={showScoreModal}
           >
-            <StatusBar barStyle="dark-content" backgroundColor= '#0b2c54'/>
+            <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF'/>
             <View style={{
                        flex: 1,
-                       backgroundColor: colors.darkBlue,
+                       backgroundColor: '#FFFFFF',
                        alignItems: 'center',
                        justifyContent: 'center'
                    }}>
                       <View style={{
-                           backgroundColor: colors.white,
+                           backgroundColor: colors.darkBlue,
                            width: '90%',
                            borderRadius: 20,
                            padding: 20,
                            alignItems: 'center'
                        }}>
-                          <Text style={{fontSize: 30, fontWeight: 'bold', color: 'grey'}}>
+                          <Text style={{fontSize: 30, fontWeight: 'bold', color: colors.white2}}>
                               { score> (allQuestions.length/2) ? 'Congratulations!' : 'Try again :(' }
                               </Text>
 
@@ -280,26 +280,27 @@ return (
                                alignItems: 'center',
                                marginVertical: 20
                            }}>
+                              <Text style={{fontSize: 30, color: colors.white2}}>Correct: </Text>
                               <Text style={{
                                    fontSize: 30,
                                    color: score> (allQuestions.length/2) ? colors.success : colors.error
                                }}>{score}</Text>
                                 <Text style={{
-                                    fontSize: 20, color: colors.black1
-                                }}>/ { allQuestions.length }</Text>
+                                    fontSize: 20, color: colors.white2
+                                }}> / { allQuestions.length }</Text>
                            </View>
                             {/* Retry Quiz button */}
                             <TouchableOpacity
                            //onPress={restartQuiz}
                            onPress= {()=> navigation.navigate("Quiz")}
                            style={{
-                               backgroundColor: colors.accent,
+                               backgroundColor: colors.white2,
                                padding: 15, 
                                width: '100%', 
                                borderRadius: 20
                            }}>
                               <Text style={{
-                                   textAlign: 'center', color: colors.white, fontSize: 20
+                                   textAlign: 'center', color: colors.black1, fontSize: 20
                                }}>Back</Text>
                            </TouchableOpacity>
                        </View>

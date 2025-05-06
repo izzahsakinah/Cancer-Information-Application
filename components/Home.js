@@ -63,7 +63,7 @@ const Home = ({navigation}) => {
               ]}>
               <View style={styles.discoverItemDetailsWrapper}>
                 <Text style={styles.discoverItemDetails}>
-                  Introduction to Cancer
+                  Nanotechnology
                 </Text>
                 <Image
                   style={styles.discoverItemImage}
@@ -88,7 +88,7 @@ const Home = ({navigation}) => {
                 {
                   right: 50,
                 },
-                ]}>Nanotechnology</Text>
+                ]}>Nanomaterials</Text>
                 <Image
                   style={[
                     styles.discoverItemImage
@@ -125,7 +125,39 @@ const Home = ({navigation}) => {
                     top: 60,
                   },
                   ]}>
-                  Application : Nanomedicine
+                    Nanomedicine
+                </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('DetailsCancer')}>
+            <View
+              style={[
+                styles.discoverItem,
+                {
+                  width: 328,
+                  height: 80,
+                  borderRadius: 20,
+                  backgroundColor: colors.white2,
+                },
+              ]}>
+                  <Image
+                  style={[
+                    styles.discoverItemImage,
+                    {
+                      width: 124,
+                      height: 124,
+                      marginBottom: 100,
+                    },
+                  ]}
+                  source={imageDrugs}></Image>
+                  <Text style={[styles.discoverItemDetails, 
+                  {
+                    right: 10,
+                    top: 60,
+                  },
+                  ]}>
+                    Cancer
                 </Text>
             </View>
           </TouchableOpacity>

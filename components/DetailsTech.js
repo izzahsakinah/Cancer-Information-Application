@@ -6,7 +6,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 Entypo.loadFont();
 
-const Details = ({navigation}) => {
+const DetailsTech = ({navigation}) => {
     
     return (        
     <View style={styles.container}>
@@ -210,4 +210,4 @@ const styles = StyleSheet.create({
     }, 
 });
 
-export default Details;
+export default DetailsTech;

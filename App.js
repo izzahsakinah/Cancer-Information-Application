@@ -6,11 +6,10 @@ import Home from './components/Home';
 import Splash from './components/Splash';
 import Register from './components/Register';
 import Login from './components/Login';
-import Details from './components/Details';
-import DetailsNano from './components/DetailsNano';
-import Nanoparticles from './components/Nanoparticles';
+import DetailsTech from './components/DetailsTech';
+import DetailsMaty from './components/DetailsMaty';
 import DetailsMed from './components/DetailsMed';
-//import Profile from './components/Profile';
+import DetailsCancer from './components/DetailsCancer';
 import About from './components/About';
 //import Logout from './components/Logout';
 import Quiz from './components/Quiz';
@@ -171,8 +170,9 @@ const App = () => {
     <Stack.Screen
       name="Splash"
       component={Splash}
-      options={{headerShown : false,}}/>      
-    <Stack.Screen
+      options={{headerShown : false,}}
+      />      
+    {/*<Stack.Screen
       name="Login"
       component={Login}
       options={{headerShown : false,
@@ -183,7 +183,7 @@ const App = () => {
       component={Register}
       options={{headerShown : false,
     }}
-    />
+    />*/}
       <Stack.Screen
       name="Menu"
       component={MainStackNavigator}
@@ -198,23 +198,23 @@ const App = () => {
       //options={{title: 'My home'}}
       />
       <Stack.Screen
-        name="Details"
-        component={Details}
+        name="DetailsTech"
+        component={DetailsTech}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="DetailsNano"
-        component={DetailsNano}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Nanoparticles"
-        component={Nanoparticles}
+        name="DetailsMaty"
+        component={DetailsMaty}
         options={{headerShown: false}}
       />
       <Stack.Screen
         name="DetailsMed"
         component={DetailsMed}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DetailsCancer"
+        component={DetailsCancer}
         options={{headerShown: false}}
       />
       <Stack.Screen

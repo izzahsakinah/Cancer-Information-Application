@@ -6,7 +6,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 Entypo.loadFont();
 
-const DetailsNano = ({navigation}) => {
+const DetailsCancer = ({navigation}) => {
     return (
       <View style={styles.container}>      
       <StatusBar barStyle="dark-content" backgroundColor= '#FFFFFF' />
@@ -117,4 +117,4 @@ const styles = StyleSheet.create({
   }, 
 
 })  
-export default DetailsNano;
+export default DetailsCancer;
